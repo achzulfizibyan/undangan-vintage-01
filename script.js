@@ -17,8 +17,14 @@
   const musicPlayer = document.getElementById('musicPlayer');
   const bgMusic = document.getElementById('bgMusic');
   const toast = document.getElementById('toast');
+  const musicToast = document.getElementById('musicToast');
   const btnToggleAmplop = document.getElementById('btnToggleAmplop');
   const amplopBox = document.getElementById('amplopBox');
+  const paymentToggleButtons = document.querySelectorAll('.payment-toggle-button');
+  const paymentPanels = document.querySelectorAll('[data-payment-panel]');
+  const qrisImage = document.querySelector('.qris-image');
+  const qrisFallback = document.querySelector('.qris-fallback');
+  const sparkleBurst = document.getElementById('sparkleBurst');
   const rsvpForm = document.getElementById('rsvpForm');
   const wishesContainer = document.getElementById('wishesContainer');
   const statHadirEl = document.getElementById('statHadir');
@@ -181,6 +187,14 @@
   // 5. Music & Vinyl Player Controls
   // ——————————————————————————————————————————————
   let isPlaying = false;
+  let hasShownMusicToast = false;
+
+  function showMusicToast() {
+    if (!musicToast || hasShownMusicToast) return;
+    hasShownMusicToast = true;
+    musicToast.classList.add('show');
+    setTimeout(() => musicToast.classList.remove('show'), 4000);
+  }
 
   function startMusic() {
     if (!bgMusic) return;
@@ -191,6 +205,7 @@
         .then(() => {
           isPlaying = true;
           musicPlayer.classList.remove('paused');
+          showMusicToast();
         })
         .catch(() => {
           isPlaying = false;
@@ -209,6 +224,7 @@
       bgMusic.play().then(() => {
         isPlaying = true;
         musicPlayer.classList.remove('paused');
+        showMusicToast();
       });
     }
   }
@@ -275,6 +291,41 @@
       if (isExpanded) {
         const cards = amplopBox.querySelectorAll('.ef');
         cards.forEach((c) => c.classList.add('active'));
+      }
+
+      paymentToggleButtons.forEach((button) => {
+        button.addEventListener('click', () => {
+          const selectedView = button.dataset.paymentView;
+          paymentToggleButtons.forEach((item) => {
+            item.classList.toggle('is-active', item === button);
+          });
+          paymentPanels.forEach((panel) => {
+            const isVisible = panel.dataset.paymentPanel === selectedView;
+            panel.classList.toggle('is-visible', isVisible);
+            panel.setAttribute('aria-hidden', String(!isVisible));
+          });
+        });
+      });
+
+      if (qrisImage && qrisFallback) {
+        qrisImage.addEventListener('error', () => {
+          qrisImage.hidden = true;
+          qrisFallback.style.display = 'block';
+        });
+      }
+
+      function createSparkleBurst() {
+        if (!sparkleBurst) return;
+        sparkleBurst.replaceChildren();
+        for (let index = 0; index < 22; index += 1) {
+          const particle = document.createElement('span');
+          particle.className = 'sparkle-particle';
+          particle.style.setProperty('--sparkle-x', `${(Math.random() - 0.5) * 85}vw`);
+          particle.style.setProperty('--sparkle-y', `${(Math.random() - 0.5) * 70}vh`);
+          particle.style.animationDelay = `${Math.random() * 0.18}s`;
+          sparkleBurst.appendChild(particle);
+          particle.addEventListener('animationend', () => particle.remove(), { once: true });
+        }
       }
     });
   }
@@ -381,43 +432,29 @@
     });
   });
 
-  const defaultWishesList = [
-    {
-      name: 'Budi Santoso & Keluarga',
-      presence: 'Hadir',
-      message: 'Selamat menempuh hidup baru Habib & Adiba! Semoga menjadi keluarga yang sakinah, mawaddah, warahmah. Aamiin yaa Rabbal alamin.',
-      time: '12-10-2026 14:20',
-    },
-    {
-      name: 'Siti Aminah',
-      presence: 'Hadir',
-      message: 'Barakallahu lakuma wa baraka alaikuma wa jama\'a bainakuma fi khair. Lancar sampai hari H yaa!',
-      time: '12-10-2026 11:05',
-    },
-    {
-      name: 'Ahmad Fauzi',
-      presence: 'Hadir',
-      message: 'MasyaAllah, selamat brother Habib! Bahagia selalu bersama Adiba sampai kakek nenek.',
-      time: '11-10-2026 19:45',
-    },
-    {
-      name: 'Dewi Rahmawati',
-      presence: 'Tidak Hadir',
-      message: 'Mohon maaf belum bisa hadir secara langsung karena dinas luar kota, tapi doa terbaik selalu untuk kalian berdua ❤️',
-      time: '11-10-2026 16:30',
-    },
-  ];
+  const demoWishSignatures = new Set([
+    'Budi Santoso & Keluarga|12-10-2026 14:20',
+    'Siti Aminah|12-10-2026 11:05',
+    'Ahmad Fauzi|11-10-2026 19:45',
+    'Dewi Rahmawati|11-10-2026 16:30',
+  ]);
 
   function getWishes() {
     const raw = localStorage.getItem('vintage_wishes_data');
-    if (!raw) {
-      localStorage.setItem('vintage_wishes_data', JSON.stringify(defaultWishesList));
-      return defaultWishesList;
-    }
+    if (!raw) return [];
+
     try {
-      return JSON.parse(raw);
+      const wishes = JSON.parse(raw);
+      if (!Array.isArray(wishes)) return [];
+
+      const guestWishes = wishes.filter((wish) => (
+        !demoWishSignatures.has(`${wish.name}|${wish.time}`)
+      ));
+      localStorage.setItem('vintage_wishes_data', JSON.stringify(guestWishes));
+      return guestWishes;
     } catch {
-      return defaultWishesList;
+      localStorage.removeItem('vintage_wishes_data');
+      return [];
     }
   }
 
@@ -493,6 +530,7 @@
       localStorage.setItem('vintage_wishes_data', JSON.stringify(wishes));
 
       renderWishes();
+      createSparkleBurst();
       showToast('Terima kasih atas doa dan ucapannya! 🤍');
 
       if (messageInput) messageInput.value = '';
@@ -675,4 +713,3 @@
   initBatikParallax();
 
 })();
-

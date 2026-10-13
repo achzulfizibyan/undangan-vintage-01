@@ -240,6 +240,15 @@
               <span class="countdown-unit">Detik</span>
             </div>
           </div>
+          <a
+            class="btn-calendar"
+            href="https://calendar.google.com/calendar/render?action=TEMPLATE&amp;text=Resepsi%20Pernikahan%20Herman%20%26%20Zizi&amp;dates=20261029T000000Z/20261029T100000Z&amp;details=Resepsi%20pernikahan%20Herman%20dan%20Zizi&amp;location=Depan%20Masjid%20Datok%20Karay%2C%20Dusun%20Tenggina%20Desa%20Gelaman"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <span aria-hidden="true">📅</span>
+            <span>Simpan Tanggal ke Google Calendar</span>
+          </a>
         </section>
 
         <!-- ——— SECTION: Acara (Events) ——— -->
@@ -341,18 +350,7 @@
             </div>
           </div>
 
-          <!-- Video Showcase -->
-          <div class="gallery-video-container ef zoom-up delay-1">
-            <iframe 
-              src="https://www.youtube-nocookie.com/embed/8h7pbb4A4JI?playsinline=1&rel=0&modestbranding=1&autoplay=1&mute=1&loop=1&playlist=8h7pbb4A4JI" 
-              title="Video Undangan Pernikahan"
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
-              loading="lazy" 
-              class="gallery-video-frame">
-            </iframe>
-          </div>
-
-          <!-- Photo Grid -->
+              <!-- Photo Grid -->
           <div class="gallery-grid-container ef zoom-up delay-2">
             <div class="gallery-thumb" data-full="assets/img/ref-gal-1.jpg">
               <img src="assets/img/1.jfif" alt="Galeri 1" loading="lazy">
@@ -374,18 +372,6 @@
             </div>
             <div class="gallery-thumb" data-full="assets/img/ref-gal-4.jpg">
               <img src="assets/img/4.jfif" alt="Galeri 4" loading="lazy">
-              <div class="thumb-overlay">
-                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/><line x1="11" y1="8" x2="11" y2="14"/><line x1="8" y1="11" x2="14" y2="11"/></svg>
-              </div>
-            </div>
-            <div class="gallery-thumb" data-full="assets/img/ref-cover.jpg">
-              <img src="assets/img/ref-cover.jpg" alt="Galeri 5" loading="lazy">
-              <div class="thumb-overlay">
-                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/><line x1="11" y1="8" x2="11" y2="14"/><line x1="8" y1="11" x2="14" y2="11"/></svg>
-              </div>
-            </div>
-            <div class="gallery-thumb" data-full="assets/img/ref-story.jpg">
-              <img src="assets/img/ref-story.jpg" alt="Galeri 6" loading="lazy">
               <div class="thumb-overlay">
                 <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/><line x1="11" y1="8" x2="11" y2="14"/><line x1="8" y1="11" x2="14" y2="11"/></svg>
               </div>
@@ -414,6 +400,11 @@
 
           <!-- Collapsible Box -->
           <div class="amplop-cards-wrapper" id="amplopBox">
+            <div class="payment-view-toggle" role="group" aria-label="Pilih metode pembayaran">
+              <button type="button" class="payment-toggle-button is-active" data-payment-view="atm">Nomor Rekening</button>
+              <button type="button" class="payment-toggle-button" data-payment-view="qris">QRIS</button>
+            </div>
+            <div class="payment-view payment-view-atm is-visible" data-payment-panel="atm" aria-hidden="false">
             <!-- BCA Card -->
             <div class="atm-card atm-bca ef zoom-up delay-1">
               <div class="atm-card-header">
@@ -447,6 +438,18 @@
                   <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
                   <span>Copy</span>
                 </button>
+              </div>
+            </div>
+            </div>
+            <div class="payment-view payment-view-qris" data-payment-panel="qris" aria-hidden="true">
+              <div class="qris-card">
+                <p class="qris-title">Pembayaran QRIS</p>
+                <p class="qris-subtitle">Pindai kode QR untuk mengirim tanda kasih</p>
+                <div class="qris-image-frame">
+                  <img src="assets/img/qris.png" alt="Kode QRIS untuk Herman dan Zizi" class="qris-image" id="qrisImage">
+                  <p class="qris-fallback" id="qrisFallback">Tambahkan file QRIS pada <strong>assets/img/qris.png</strong>.</p>
+                </div>
+                <p class="qris-note">Pastikan nama penerima sudah sesuai sebelum melakukan pembayaran.</p>
               </div>
             </div>
 
@@ -538,7 +541,7 @@
         <!-- ——— SECTION: Closing (Penutup) ——— -->
         <section class="section section-ivory closing-section" id="closing">
           <div class="closing-photo-wrap ef zoom-up">
-            <img src="assets/img/ref-cover.jpg" alt="Herman &amp; Zizi" class="closing-photo" loading="lazy">
+            <img src="assets/img/4.jfif" alt="Herman &amp; Zizi" class="closing-photo" loading="lazy">
           </div>
           <div class="ef zoom-down delay-1">
             <p class="closing-text">
@@ -587,6 +590,11 @@
       </div>
     </div>
   </button>
+  <div class="music-toast" id="musicToast" role="status" aria-live="polite">
+    <span class="music-toast-icon" aria-hidden="true">♫</span>
+    <span><strong>Now Playing</strong><small>Wedding Song</small></span>
+  </div>
+  <div class="sparkle-burst" id="sparkleBurst" aria-hidden="true"></div>
 
   <!-- ============================================================
        BOTTOM DOCK NAVIGATION
