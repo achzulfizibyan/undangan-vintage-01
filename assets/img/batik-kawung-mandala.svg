@@ -1,0 +1,66 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 300" width="300" height="300">
+  <defs>
+    <linearGradient id="goldBatik" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#dfc181" stop-opacity="0.95"/>
+      <stop offset="50%" stop-color="#c5a059" stop-opacity="0.85"/>
+      <stop offset="100%" stop-color="#987834" stop-opacity="0.95"/>
+    </linearGradient>
+    <linearGradient id="goldGlow" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#f5e6be" stop-opacity="0.8"/>
+      <stop offset="100%" stop-color="#c5a059" stop-opacity="0.3"/>
+    </linearGradient>
+    
+    <!-- Satu Kelopak Kawung Berisi Isen-isen Cecek -->
+    <g id="kawungPetal">
+      <!-- Bentuk elips kelopak -->
+      <path d="M 150 150 C 120 100 120 50 150 10 C 180 50 180 100 150 150 Z" 
+            fill="none" stroke="url(#goldBatik)" stroke-width="2"/>
+      <!-- Garis tengah bertulang -->
+      <line x1="150" y1="20" x2="150" y2="140" stroke="url(#goldBatik)" stroke-width="1" stroke-dasharray="2,3"/>
+      <!-- Isen-isen cecek (titik-titik khas batik) -->
+      <circle cx="140" cy="55" r="2" fill="#dfc181"/>
+      <circle cx="160" cy="55" r="2" fill="#dfc181"/>
+      <circle cx="136" cy="80" r="2" fill="#dfc181"/>
+      <circle cx="164" cy="80" r="2" fill="#dfc181"/>
+      <circle cx="140" cy="105" r="2" fill="#dfc181"/>
+      <circle cx="160" cy="105" r="2" fill="#dfc181"/>
+      <circle cx="150" cy="40" r="3" fill="#c5a059"/>
+      <circle cx="150" cy="120" r="3" fill="#c5a059"/>
+    </g>
+
+    <!-- Ornamen Sudut Antar Kelopak -->
+    <g id="kawungDiamond">
+      <path d="M 150 100 L 165 115 L 150 130 L 135 115 Z" fill="none" stroke="url(#goldBatik)" stroke-width="1.5"/>
+      <circle cx="150" cy="115" r="3" fill="#dfc181"/>
+    </g>
+  </defs>
+
+  <!-- Lingkaran Luar Berenda (Beaded Rim) -->
+  <circle cx="150" cy="150" r="142" fill="none" stroke="url(#goldBatik)" stroke-width="1.2" opacity="0.6"/>
+  <circle cx="150" cy="150" r="136" fill="none" stroke="url(#goldBatik)" stroke-width="1" stroke-dasharray="4,6" opacity="0.8"/>
+  <circle cx="150" cy="150" r="126" fill="none" stroke="url(#goldBatik)" stroke-width="1.5" opacity="0.7"/>
+
+  <!-- Kelopak Kawung Utama (4 Arah Mata Angin) -->
+  <use href="#kawungPetal"/>
+  <use href="#kawungPetal" transform="rotate(90 150 150)"/>
+  <use href="#kawungPetal" transform="rotate(180 150 150)"/>
+  <use href="#kawungPetal" transform="rotate(270 150 150)"/>
+
+  <!-- Kelopak Kawung Sekunder (4 Arah Diagonal) -->
+  <use href="#kawungPetal" transform="rotate(45 150 150) scale(0.85)" transform-origin="150 150" opacity="0.8"/>
+  <use href="#kawungPetal" transform="rotate(135 150 150) scale(0.85)" transform-origin="150 150" opacity="0.8"/>
+  <use href="#kawungPetal" transform="rotate(225 150 150) scale(0.85)" transform-origin="150 150" opacity="0.8"/>
+  <use href="#kawungPetal" transform="rotate(315 150 150) scale(0.85)" transform-origin="150 150" opacity="0.8"/>
+
+  <!-- Diamond / Isen-isen Antar Kelopak -->
+  <use href="#kawungDiamond"/>
+  <use href="#kawungDiamond" transform="rotate(90 150 150)"/>
+  <use href="#kawungDiamond" transform="rotate(180 150 150)"/>
+  <use href="#kawungDiamond" transform="rotate(270 150 150)"/>
+
+  <!-- Pusat Mandala (Rosette Pusat Truntum) -->
+  <circle cx="150" cy="150" r="24" fill="none" stroke="url(#goldBatik)" stroke-width="1.5"/>
+  <circle cx="150" cy="150" r="16" fill="none" stroke="url(#goldBatik)" stroke-width="1" stroke-dasharray="3,3"/>
+  <circle cx="150" cy="150" r="8" fill="url(#goldBatik)"/>
+  <circle cx="150" cy="150" r="3" fill="#ffffff"/>
+</svg>

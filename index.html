@@ -1,0 +1,627 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover, maximum-scale=1.0, user-scalable=no">
+  <meta name="format-detection" content="telephone=no">
+  <title>The Wedding of Herman &amp; Zizi — Undangan Pernikahan</title>
+  <meta name="description" content="Undangan website pernikahan bertema vintage Herman Yulianto &amp; Zizi Putri Syakila. Kamis, 29 Oktober 2026.">
+  <meta property="og:title" content="The Wedding of Herman &amp; Zizi">
+  <meta property="og:description" content="Kami mengundang Bapak/Ibu/Saudara/i untuk menghadiri hari bahagia kami. Kamis, 29 Oktober 2026.">
+  <meta property="og:type" content="article">
+  <meta property="og:image" content="assets/img/ref-cover.jpg">
+  <meta name="theme-color" content="#446b77">
+  <meta name="apple-mobile-web-app-status-bar-style" content="#446b77">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>💍</text></svg>">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body class="no-scroll">
+
+  <!-- ============================================================
+       COVER MODAL (SPLASH SCREEN)
+       ============================================================ -->
+  <section class="cover-section" id="cover" aria-label="Cover Undangan">
+    <div class="cover-overlay"></div>
+    
+    <!-- Rotating Batik Kawung Mandalas (Animated Background Elements) -->
+    <div class="batik-mandala-wrap cover-mandala-tl" aria-hidden="true">
+      <img src="assets/img/batik-kawung-mandala.svg" alt="" class="batik-mandala spin-slow">
+    </div>
+    <div class="batik-mandala-wrap cover-mandala-br" aria-hidden="true">
+      <img src="assets/img/batik-kawung-mandala.svg" alt="" class="batik-mandala spin-slow-reverse">
+    </div>
+
+    <div class="cover-card" id="coverCard">
+      <!-- Animated Flying Bird -->
+      <div class="lottie-bird cover-bird" id="lottieBirdCover"></div>
+
+      <!-- Batik Corner Accents -->
+      <div class="card-batik-corner corner-tl" aria-hidden="true">
+        <img src="assets/img/batik-corner.svg" alt="" class="corner-svg">
+      </div>
+      <div class="card-batik-corner corner-br" aria-hidden="true">
+        <img src="assets/img/batik-corner.svg" alt="" class="corner-svg">
+      </div>
+
+      <p class="cover-label ef zoom-down delay-1">The Wedding of</p>
+      
+      <div class="cover-photo-frame ef zoom-down delay-2">
+        <img src="assets/img/ref-cover.jpg" alt="Herman &amp; Zizi" class="cover-couple-photo">
+      </div>
+      
+      <h1 class="cover-names ef zoom-down delay-3">Herman &amp; Zizi</h1>
+      
+      <p class="cover-guest-intro ef zoom-down delay-4">Kepada Bapak/Ibu/Saudara/i</p>
+      
+      <div class="cover-guest-box ef zoom-down delay-5">
+        <span class="cover-guest-name" id="coverGuestName">Tamu Undangan</span>
+      </div>
+      
+      <div class="ef zoom-down delay-6">
+        <button type="button" class="btn-open-invitation" id="btnOpen" aria-label="Buka Undangan">
+          <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
+            <polyline points="22,6 12,13 2,6"/>
+          </svg>
+          <span>Buka Undangan</span>
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       DESKTOP SPLIT CONTAINER
+       ============================================================ -->
+  <div class="desktop-layout-container">
+    
+    <!-- DESKTOP HERO PANEL (Left column on large screens) -->
+    <aside class="desktop-hero-panel" id="deskCov" aria-label="Desktop Cover">
+      <div class="desktop-hero-bg"></div>
+      
+      <!-- Rotating Celestial Batik Mandala Backdrop (Desktop) -->
+      <div class="batik-mandala-wrap desk-mandala-bg" aria-hidden="true">
+        <img src="assets/img/batik-kawung-mandala.svg" alt="" class="batik-mandala spin-ultra-slow">
+      </div>
+
+      <div class="desktop-hero-content">
+        <!-- Batik Corner Accents for Desktop Card -->
+        <div class="card-batik-corner corner-tl" aria-hidden="true">
+          <img src="assets/img/batik-corner.svg" alt="" class="corner-svg">
+        </div>
+        <div class="card-batik-corner corner-br" aria-hidden="true">
+          <img src="assets/img/batik-corner.svg" alt="" class="corner-svg">
+        </div>
+
+        <p class="desktop-hero-subtitle">The Wedding of</p>
+        <h2 class="desktop-hero-names">Herman &amp; Zizi</h2>
+        <div class="desktop-hero-divider">
+          <img src="assets/img/divider-vintage.png" alt="" class="divider-img">
+        </div>
+        <p class="desktop-hero-date">29 &bull; 10 &bull; 2026</p>
+        <div class="desktop-hero-quote">
+          <p>"Dan di antara tanda-tanda (kebesaran)-Nya ialah Dia menciptakan pasangan-pasangan untukmu dari jenismu sendiri..."</p>
+          <span>(Qs. Ar-Rum : 21)</span>
+        </div>
+      </div>
+    </aside>
+
+    <!-- INVITATION PHONE FRAME (Scrollable column) -->
+    <main class="invitation-phone-frame" id="phoneFrame">
+      <div class="invitation-scroll-area" id="mainContent">
+
+        <!-- ——— SECTION: Slide Awal (Hero) ——— -->
+        <section class="section hero-slide" id="hero">
+          <div class="hero-slide-bg"></div>
+          
+          <!-- Rotating Batik Kawung Mandalas in Hero Slide -->
+          <div class="batik-mandala-wrap hero-mandala-top" aria-hidden="true">
+            <img src="assets/img/batik-kawung-mandala.svg" alt="" class="batik-mandala spin-slow">
+          </div>
+          <div class="batik-mandala-wrap hero-mandala-bottom" aria-hidden="true">
+            <img src="assets/img/batik-kawung-mandala.svg" alt="" class="batik-mandala spin-slow-reverse">
+          </div>
+
+          <!-- Animated Bird -->
+          <div class="lottie-bird hero-bird" id="lottieBirdHero"></div>
+
+          <div class="hero-content">
+            <p class="hero-tagline ef zoom-down delay-1">The Wedding of</p>
+            <h2 class="hero-title ef zoom-down delay-2">Herman <br>&amp; Zizi</h2>
+            <p class="hero-date ef zoom-down delay-3">29. 10. 2026</p>
+            <div class="ef zoom-down delay-4">
+              <a href="#date" class="btn-save-the-date">
+                <span>Save The Date</span>
+              </a>
+            </div>
+          </div>
+        </section>
+
+        <!-- ——— SECTION: Opening (Ayat Suci) ——— -->
+        <section class="section section-cream opening-section" id="opening">
+          <div class="monogram-badge ef zoom-down">
+            <span class="monogram-text">HA</span>
+          </div>
+          <div class="ef zoom-down delay-1">
+            <blockquote class="quran-quote">
+              &ldquo;Dan di antara tanda-tanda (kebesaran)-Nya ialah Dia menciptakan pasangan-pasangan untukmu dari jenismu sendiri, agar kamu cenderung dan merasa tenteram kepadanya, dan Dia menjadikan di antaramu rasa kasih dan sayang. Sesungguhnya pada yang demikian itu benar-benar terdapat tanda-tanda (kebesaran Allah) bagi kaum yang berpikir.&rdquo;
+              <footer class="quran-ref">(Qs. Ar-Rum : 21)</footer>
+            </blockquote>
+          </div>
+        </section>
+
+        <!-- ——— SECTION: Mempelai (The Couple) ——— -->
+        <section class="section section-ivory couple-section" id="couple">
+          <!-- Animated Bird -->
+          <div class="lottie-bird couple-bird" id="lottieBirdCouple"></div>
+
+          <div class="ef zoom-down">
+            <h2 class="section-heading">Assalamu'alaikum Wr. Wb</h2>
+            <p class="couple-intro-text">
+              Tanpa mengurangi rasa hormat, kami mengundang Bapak/Ibu/Saudara/i serta kerabat sekalian untuk menghadiri acara pernikahan kami.
+            </p>
+          </div>
+
+          <!-- Groom -->
+          <div class="couple-profile ef zoom-down delay-1">
+            <div class="profile-photo-wrapper">
+              <img src="assets/img/ref-groom.jpg" alt="Herman Yulianto" class="profile-photo" loading="lazy">
+            </div>
+            <h3 class="profile-name">Herman Sugianto, S.H, M.Pd</h3>
+            <p class="profile-parents">
+              Putra Pertama dari<br>
+              <strong>Bapak Matli</strong><br>
+              &amp; <strong>Ibu Mainni</strong>
+            </p>
+            <a href="https://www.instagram.com/" class="btn-instagram" target="_blank" rel="noopener noreferrer">
+              <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+              </svg>
+              <span>@herman</span>
+            </a>
+          </div>
+
+          <div class="couple-ampersand ef zoom-down delay-2">&amp;</div>
+
+          <!-- Bride -->
+          <div class="couple-profile ef zoom-down delay-3">
+            <div class="profile-photo-wrapper">
+              <img src="assets/img/ref-bride.jpg" alt="Zizi Putri Syakila" class="profile-photo" loading="lazy">
+            </div>
+            <h3 class="profile-name">Nur Aziziyah, S.Pd</h3>
+            <p class="profile-parents">
+              Putri kedua dari<br>
+              <strong>Bapak Busari</strong><br>
+              &amp; <strong>Ibu Sutiama</strong>
+            </p>
+            <a href="https://www.instagram.com/" class="btn-instagram" target="_blank" rel="noopener noreferrer">
+              <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+              </svg>
+              <span>@Zizi</span>
+            </a>
+          </div>
+        </section>
+
+        <!-- ——— SECTION: Save The Date & Countdown ——— -->
+        <section class="section section-cream date-section" id="date">
+          <div class="frame-ornament-wrap ef zoom-down">
+            <img src="assets/img/frame-vintage.png" alt="" class="frame-ornament-img">
+          </div>
+          <div class="ef zoom-down delay-1">
+            <h2 class="section-title-vintage">Save The Date</h2>
+            <p class="date-message">
+              Dan kami bersyukur, dipertemukan Allah di waktu terbaik, Kini kami menanti hari istimewa kami.
+            </p>
+          </div>
+
+          <!-- Countdown Timer -->
+          <div class="countdown-container ef zoom-up delay-2" id="countdown">
+            <div class="countdown-card">
+              <span class="countdown-digit" id="countDays">0</span>
+              <span class="countdown-unit">Hari</span>
+            </div>
+            <div class="countdown-card">
+              <span class="countdown-digit" id="countHours">0</span>
+              <span class="countdown-unit">Jam</span>
+            </div>
+            <div class="countdown-card">
+              <span class="countdown-digit" id="countMinutes">0</span>
+              <span class="countdown-unit">Menit</span>
+            </div>
+            <div class="countdown-card">
+              <span class="countdown-digit" id="countSeconds">0</span>
+              <span class="countdown-unit">Detik</span>
+            </div>
+          </div>
+        </section>
+
+        <!-- ——— SECTION: Acara (Events) ——— -->
+        <section class="section section-ivory event-section" id="event">
+          <!-- Resepsi Pernikahan -->
+          <div class="event-card ef zoom-down delay-1">
+            <h3 class="event-title">Resepsi Pernikahan</h3>
+            <div class="event-divider">
+              <img src="assets/img/divider-vintage.png" alt="" class="divider-img">
+            </div>
+            <p class="event-day-date">Kamis, 29 Oktober 2026</p>
+            <p class="event-clock">Pukul : 07.00 WIB &ndash; Selesai</p>
+            <div class="event-location-box">
+              <p class="event-venue-name">KEDIAMAN MEMPELAI PRIA</p>
+              <p class="event-venue-address">Depan Masjid Datok Karay, Dusun Tenggina Desa Gelaman</p>
+            </div>
+            <a href="https://maps.app.goo.gl/ZiyFghjuUfeUjgzs9" class="btn-location" target="_blank" rel="noopener noreferrer">
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/>
+                <circle cx="12" cy="10" r="3"/>
+              </svg>
+              <span>Lihat Lokasi</span>
+            </a>
+          </div>
+        </section>
+
+        <!-- ——— SECTION: Live Streaming ——— -->
+        <section class="section section-cream streaming-section" id="streaming">
+          <div class="ef zoom-down">
+            <h2 class="section-title-vintage">Live Streaming</h2>
+            <div class="event-divider">
+              <img src="assets/img/divider-vintage.png" alt="" class="divider-img">
+            </div>
+            <p class="streaming-desc">
+              Kami mengundang Bapak/Ibu/Saudara/i untuk menyaksikan pernikahan kami secara virtual yang disiarkan langsung melalui media sosial di bawah ini
+            </p>
+            <p class="streaming-time">Kamis, 29 Oktober 2026<br>Pukul : 07.00 WIB</p>
+            <a href="https://www.instagram.com/" class="btn-streaming" target="_blank" rel="noopener noreferrer">
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+              </svg>
+              <span>@Herman</span>
+            </a>
+          </div>
+        </section>
+
+        <!-- ——— SECTION: Love Story ——— -->
+        <section class="section section-ivory story-section" id="story">
+          <div class="ef zoom-down">
+            <h2 class="section-title-vintage">Love Story</h2>
+            <div class="event-divider">
+              <img src="assets/img/divider-vintage.png" alt="" class="divider-img">
+            </div>
+          </div>
+
+          <div class="story-image-wrap ef zoom-up delay-1">
+            <img src="assets/img/ref-story.jpg" alt="Kisah Cinta Herman &amp; Zizi" class="story-image" loading="lazy">
+          </div>
+
+          <div class="story-timeline">
+            <div class="timeline-entry ef zoom-up delay-1">
+              <div class="timeline-dot"></div>
+              <h4 class="timeline-heading">Awal Cerita</h4>
+              <p class="timeline-text">
+                Berawal dari pertemuan sederhana, kami saling mengenal dan mulai berbagi banyak cerita. Tanpa disadari, kebersamaan itu tumbuh menjadi rasa nyaman yang semakin kuat dari hari ke hari.
+              </p>
+            </div>
+
+            <div class="timeline-entry ef zoom-up delay-2">
+              <div class="timeline-dot"></div>
+              <h4 class="timeline-heading">Lamaran</h4>
+              <p class="timeline-text">
+                Dengan niat yang tulus dan restu keluarga, kami memutuskan untuk melangkah ke tahap yang lebih serius. Momen lamaran menjadi awal dari perjalanan baru yang penuh harapan dan doa baik.
+              </p>
+            </div>
+
+            <div class="timeline-entry ef zoom-up delay-3">
+              <div class="timeline-dot"></div>
+              <h4 class="timeline-heading">Pernikahan</h4>
+              <p class="timeline-text">
+                Kini kami sampai pada hari yang kami nantikan, hari di mana dua hati dipersatukan dalam ikatan suci pernikahan. Semoga langkah ini menjadi awal kehidupan baru yang penuh cinta, kebahagiaan, dan keberkahan.
+              </p>
+            </div>
+          </div>
+        </section>
+
+        <!-- ——— SECTION: Galeri Foto & Video ——— -->
+        <section class="section section-cream gallery-section" id="gallery">
+          <div class="ef zoom-down">
+            <h2 class="section-title-vintage">Galeri Foto</h2>
+            <div class="event-divider">
+              <img src="assets/img/divider-vintage.png" alt="" class="divider-img">
+            </div>
+          </div>
+
+          <!-- Video Showcase -->
+          <div class="gallery-video-container ef zoom-up delay-1">
+            <iframe 
+              src="https://www.youtube-nocookie.com/embed/8h7pbb4A4JI?playsinline=1&rel=0&modestbranding=1&autoplay=1&mute=1&loop=1&playlist=8h7pbb4A4JI" 
+              title="Video Undangan Pernikahan"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+              loading="lazy" 
+              class="gallery-video-frame">
+            </iframe>
+          </div>
+
+          <!-- Photo Grid -->
+          <div class="gallery-grid-container ef zoom-up delay-2">
+            <div class="gallery-thumb" data-full="assets/img/ref-gal-1.jpg">
+              <img src="assets/img/ref-gal-1.jpg" alt="Galeri 1" loading="lazy">
+              <div class="thumb-overlay">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/><line x1="11" y1="8" x2="11" y2="14"/><line x1="8" y1="11" x2="14" y2="11"/></svg>
+              </div>
+            </div>
+            <div class="gallery-thumb" data-full="assets/img/ref-gal-2.jpg">
+              <img src="assets/img/ref-gal-2.jpg" alt="Galeri 2" loading="lazy">
+              <div class="thumb-overlay">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/><line x1="11" y1="8" x2="11" y2="14"/><line x1="8" y1="11" x2="14" y2="11"/></svg>
+              </div>
+            </div>
+            <div class="gallery-thumb" data-full="assets/img/ref-gal-3.jpg">
+              <img src="assets/img/ref-gal-3.jpg" alt="Galeri 3" loading="lazy">
+              <div class="thumb-overlay">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/><line x1="11" y1="8" x2="11" y2="14"/><line x1="8" y1="11" x2="14" y2="11"/></svg>
+              </div>
+            </div>
+            <div class="gallery-thumb" data-full="assets/img/ref-gal-4.jpg">
+              <img src="assets/img/ref-gal-4.jpg" alt="Galeri 4" loading="lazy">
+              <div class="thumb-overlay">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/><line x1="11" y1="8" x2="11" y2="14"/><line x1="8" y1="11" x2="14" y2="11"/></svg>
+              </div>
+            </div>
+            <div class="gallery-thumb" data-full="assets/img/ref-cover.jpg">
+              <img src="assets/img/ref-cover.jpg" alt="Galeri 5" loading="lazy">
+              <div class="thumb-overlay">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/><line x1="11" y1="8" x2="11" y2="14"/><line x1="8" y1="11" x2="14" y2="11"/></svg>
+              </div>
+            </div>
+            <div class="gallery-thumb" data-full="assets/img/ref-story.jpg">
+              <img src="assets/img/ref-story.jpg" alt="Galeri 6" loading="lazy">
+              <div class="thumb-overlay">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/><line x1="11" y1="8" x2="11" y2="14"/><line x1="8" y1="11" x2="14" y2="11"/></svg>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- ——— SECTION: Amplop Digital ——— -->
+        <section class="section section-ivory amplop-section" id="gift">
+          <div class="ef zoom-down">
+            <h2 class="section-title-vintage">Amplop Digital</h2>
+            <div class="event-divider">
+              <img src="assets/img/divider-vintage.png" alt="" class="divider-img">
+            </div>
+            <p class="amplop-lead-text">
+              Doa restu Anda merupakan karunia yang sangat berarti bagi kami, dan jika memberi adalah ungkapan tanda kasih, Anda dapat memberi kado secara cashless.
+            </p>
+            <button type="button" class="btn-toggle-amplop" id="btnToggleAmplop">
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M20 6h-2.18c.11-.31.18-.65.18-1a3 3 0 0 0-5.83-1H11.83A3 3 0 0 0 6 5c0 .35.07.69.18 1H4a2 2 0 0 0-2 2v3h2v9a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-9h2V8a2 2 0 0 0-2-2zM9 4a1 1 0 1 1 0 2H7a1 1 0 0 1 2-2zm6 0a1 1 0 1 1 0 2h-2a1 1 0 0 1 2-2zm3 16H6v-9h12v9zm2-11H4V8h16v1z"/>
+              </svg>
+              <span>Klik Disini</span>
+            </button>
+          </div>
+
+          <!-- Collapsible Box -->
+          <div class="amplop-cards-wrapper" id="amplopBox">
+            <!-- BCA Card -->
+            <div class="atm-card atm-bca ef zoom-up delay-1">
+              <div class="atm-card-header">
+                <img src="assets/img/atm-chip.png" alt="Chip" class="atm-chip-img">
+                <img src="assets/img/bca-logo.webp" alt="Bank BCA" class="atm-bank-logo">
+              </div>
+              <div class="atm-card-body">
+                <p class="atm-number" id="numBca">12345678</p>
+                <p class="atm-holder">Herman Yulianto</p>
+              </div>
+              <div class="atm-card-footer">
+                <button type="button" class="btn-copy-card" data-copy="12345678">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+                  <span>Copy</span>
+                </button>
+              </div>
+            </div>
+
+            <!-- Mandiri Card -->
+            <div class="atm-card atm-mandiri ef zoom-up delay-2">
+              <div class="atm-card-header">
+                <img src="assets/img/atm-chip.png" alt="Chip" class="atm-chip-img">
+                <span class="bank-text-logo">MANDIRI</span>
+              </div>
+              <div class="atm-card-body">
+                <p class="atm-number" id="numMandiri">12345679</p>
+                <p class="atm-holder">Zizi Putri Syakila</p>
+              </div>
+              <div class="atm-card-footer">
+                <button type="button" class="btn-copy-card" data-copy="12345679">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+                  <span>Copy</span>
+                </button>
+              </div>
+            </div>
+
+            <!-- Kirim Hadiah Card -->
+            <div class="gift-send-card ef zoom-up delay-3">
+              <div class="gift-icon-badge">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                  <path d="M20 6h-2.18c.11-.31.18-.65.18-1a3 3 0 0 0-5.83-1H11.83A3 3 0 0 0 6 5c0 .35.07.69.18 1H4a2 2 0 0 0-2 2v3h2v9a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-9h2V8a2 2 0 0 0-2-2zM9 4a1 1 0 1 1 0 2H7a1 1 0 0 1 2-2zm6 0a1 1 0 1 1 0 2h-2a1 1 0 0 1 2-2zm3 16H6v-9h12v9zm2-11H4V8h16v1z"/>
+                </svg>
+              </div>
+              <h4 class="gift-card-title">Kirim Hadiah</h4>
+              <div class="gift-info-row">
+                <span class="gift-label">Nama Penerima</span>
+                <span class="gift-val">: Herman Yulianto</span>
+              </div>
+              <div class="gift-info-row">
+                <span class="gift-label">No. HP</span>
+                <span class="gift-val">: 081234567890</span>
+              </div>
+              <div class="gift-info-row">
+                <span class="gift-label">Alamat</span>
+                <span class="gift-val">: Depan Masjid Datok Karay, Dusun Tenggina Desa Gelaman</span>
+              </div>
+              <button type="button" class="btn-copy-card" data-copy="Herman Yulianto - Depan Masjid Datok Karay, Dusun Tenggina Desa Gelaman (Telp: 081234567890)">
+                <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+                <span>Salin Alamat</span>
+              </button>
+            </div>
+          </div>
+        </section>
+
+        <!-- ——— SECTION: RSVP & Wishes Wall ——— -->
+        <section class="section section-cream rsvp-section" id="rsvp">
+          <div class="ef zoom-down">
+            <h2 class="section-title-vintage">Ucapkan Sesuatu</h2>
+            <div class="event-divider">
+              <img src="assets/img/divider-vintage.png" alt="" class="divider-img">
+            </div>
+            <p class="rsvp-subheading">Berikan Ucapan &amp; Doa Restu</p>
+          </div>
+
+          <!-- Presence Stats -->
+          <div class="rsvp-stats-row ef zoom-down delay-1">
+            <div class="stat-badge stat-hadir">
+              <span class="stat-count" id="statHadir">0</span>
+              <span class="stat-title">Hadir</span>
+            </div>
+            <div class="stat-badge stat-tidak">
+              <span class="stat-count" id="statTidak">0</span>
+              <span class="stat-title">Tidak Hadir</span>
+            </div>
+          </div>
+
+          <!-- Form -->
+          <form class="rsvp-form-card ef zoom-up delay-2" id="rsvpForm">
+            <div class="form-row">
+              <input type="text" id="rsvpName" class="form-input" placeholder="Nama Kamu" autocomplete="name" required>
+            </div>
+            <div class="form-row">
+              <textarea id="rsvpMessage" class="form-textarea" rows="4" maxlength="1000" placeholder="Berikan Ucapan &amp; Do'a" required></textarea>
+            </div>
+            <div class="form-row">
+              <label class="form-field-label">Konfirmasi Kehadiran?</label>
+              <div class="presence-pills">
+                <button type="button" class="presence-pill pill-active" data-presence="Hadir">
+                  <span class="pill-check">✓</span> Hadir
+                </button>
+                <button type="button" class="presence-pill" data-presence="Tidak Hadir">
+                  <span class="pill-cross">✕</span> Tidak Hadir
+                </button>
+              </div>
+              <input type="hidden" id="presenceValue" value="Hadir">
+            </div>
+            <button type="submit" class="btn-rsvp-submit" id="btnSubmitRsvp">
+              <span>Kirim</span>
+            </button>
+          </form>
+
+          <!-- Wishes List -->
+          <div class="wishes-list-container ef zoom-up delay-3" id="wishesContainer">
+            <!-- Rendered by JS -->
+          </div>
+        </section>
+
+        <!-- ——— SECTION: Closing (Penutup) ——— -->
+        <section class="section section-ivory closing-section" id="closing">
+          <div class="closing-photo-wrap ef zoom-up">
+            <img src="assets/img/ref-cover.jpg" alt="Herman &amp; Zizi" class="closing-photo" loading="lazy">
+          </div>
+          <div class="ef zoom-down delay-1">
+            <p class="closing-text">
+              Merupakan suatu kehormatan dan kebahagiaan bagi kami, apabila Bapak/Ibu/Saudara/i berkenan hadir dan memberikan doa restu. Atas kehadiran dan doa restunya, kami mengucapkan terima kasih.
+            </p>
+          </div>
+          <div class="ef zoom-down delay-2">
+            <h3 class="closing-salam">Wassalamu'alaikum Wr. Wb.</h3>
+            <p class="closing-names">Herman &amp; Zizi</p>
+          </div>
+        </section>
+
+        <!-- ——— FOOTER ——— -->
+        <footer class="invitation-footer">
+          <p class="footer-watermark">Made with &hearts; by Wekita.id</p>
+          <div class="footer-socials">
+            <a href="https://wa.me/message/46S77EFCZCJAN1" class="footer-social-btn" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp">
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.711 2.598 2.664-.699c.965.556 1.764.849 2.796.849 3.182 0 5.768-2.587 5.769-5.766.001-3.182-2.585-5.769-5.769-5.769zm3.392 8.244c-.144.405-.837.774-1.17.824-.299.045-.677.063-1.092-.069-.252-.08-.575-.187-.988-.365-1.739-.751-2.874-2.502-2.961-2.617-.087-.116-.708-.94-.708-1.793s.448-1.273.607-1.446c.159-.173.346-.217.462-.217l.332.006c.106.005.249-.04.39.298.144.347.491 1.2.534 1.287.043.087.072.188.014.304-.058.116-.087.188-.173.289l-.26.304c-.087.086-.177.18-.076.354.101.174.449.741.964 1.201.662.591 1.221.774 1.394.86.173.086.275.072.376-.044.101-.116.433-.506.549-.68.116-.173.231-.145.39-.086s1.011.477 1.184.564.289.13.332.203c.043.072.043.419-.101.824z"/>
+              </svg>
+            </a>
+            <a href="https://www.instagram.com/wekita.id/" class="footer-social-btn" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+              </svg>
+            </a>
+          </div>
+        </footer>
+
+      </div><!-- /invitation-scroll-area -->
+    </main><!-- /invitation-phone-frame -->
+
+  </div><!-- /desktop-layout-container -->
+
+  <!-- ============================================================
+       FLOATING MUSIC BUTTON (Spinning Vinyl Disc with Notes)
+       ============================================================ -->
+  <button type="button" class="floating-music-btn" id="musicPlayer" aria-label="Putar / Hentikan Musik">
+    <div class="music-note-float note-1">&#9835;</div>
+    <div class="music-note-float note-2">&#9834;</div>
+    <div class="music-note-float note-3">&#9833;</div>
+    <div class="vinyl-disc">
+      <div class="vinyl-center">
+        <div class="vinyl-hole"></div>
+      </div>
+    </div>
+  </button>
+
+  <!-- ============================================================
+       BOTTOM DOCK NAVIGATION
+       ============================================================ -->
+  <nav class="bottom-dock-nav" id="bottomNav" aria-label="Navigasi Halaman">
+    <button type="button" class="dock-item active" data-target="hero" aria-label="Beranda">
+      <svg viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+      <span>Home</span>
+    </button>
+    <button type="button" class="dock-item" data-target="couple" aria-label="Mempelai">
+      <svg viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+      <span>Mempelai</span>
+    </button>
+    <button type="button" class="dock-item" data-target="event" aria-label="Acara">
+      <svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+      <span>Acara</span>
+    </button>
+    <button type="button" class="dock-item" data-target="gallery" aria-label="Galeri">
+      <svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
+      <span>Galeri</span>
+    </button>
+    <button type="button" class="dock-item" data-target="rsvp" aria-label="Buku Tamu">
+      <svg viewBox="0 0 24 24"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+      <span>Ucapan</span>
+    </button>
+  </nav>
+
+  <!-- ============================================================
+       LIGHTBOX MODAL
+       ============================================================ -->
+  <div class="lightbox-modal" id="lightbox" role="dialog" aria-modal="true" aria-label="Pratinjau Foto">
+    <button type="button" class="lightbox-close-btn" id="lightboxClose" aria-label="Tutup">&times;</button>
+    <button type="button" class="lightbox-arrow lightbox-prev" id="lightboxPrev" aria-label="Foto Sebelumnya">&#10094;</button>
+    <div class="lightbox-content">
+      <img src="" alt="Pratinjau Foto" id="lightboxImg">
+    </div>
+    <button type="button" class="lightbox-arrow lightbox-next" id="lightboxNext" aria-label="Foto Berikutnya">&#10095;</button>
+  </div>
+
+  <!-- ============================================================
+       TOAST FEEDBACK
+       ============================================================ -->
+  <div class="toast-popup" id="toast" role="alert" aria-live="polite"></div>
+
+  <!-- ============================================================
+       AUDIO (Howl's Moving Castle Theme)
+       ============================================================ -->
+  <audio id="bgMusic" loop preload="auto">
+    <source src="assets/audio/wedding-song.mp3" type="audio/mpeg">
+    <source src="https://inv.wekita.id/wp-content/uploads/2026/06/Howl-s-Moving-FULL-CUT.mp3" type="audio/mpeg">
+  </audio>
+
+  <!-- Lottie Web Player & Interactive Scripts -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/lottie-web/5.12.2/lottie.min.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,2152 @@
+/* ============================================================
+   VINTAGE WEDDING INVITATION — ULTIMATE STYLESHEET
+   Inspired by: inv.wekita.id/vintage-01
+   With Authentic Batik Motif Backgrounds & Bisdev Reveal Suite
+   ============================================================ */
+
+/* ---------- Google Fonts ---------- */
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400;1,600&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Quicksand:wght@300;400;500;600;700&family=Montserrat:wght@300;400;500;600&family=Cinzel:wght@400;600;700&display=swap');
+
+/* ---------- Design Tokens ---------- */
+:root {
+  --color-primary-teal: #446b77;
+  --color-primary-dark: #2f4e57;
+  --color-primary-deep: #21363c;
+  
+  --color-bg-ivory: #fdfbf7;
+  --color-bg-cream: #f6efe4;
+  --color-bg-sand: #ece3d4;
+  --color-bg-card: rgba(255, 255, 255, 0.94);
+
+  --color-text-main: #2e2622;
+  --color-text-muted: #6b5e59;
+  --color-text-light: #8e807b;
+  --color-text-teal: #446b77;
+
+  --color-gold: #c5a059;
+  --color-gold-light: #dfc181;
+  --color-gold-dark: #987834;
+  --color-gold-border: rgba(197, 160, 89, 0.35);
+
+  --font-serif-luxury: 'Cormorant Garamond', Georgia, serif;
+  --font-serif-display: 'Playfair Display', Georgia, serif;
+  --font-sans-clean: 'Quicksand', -apple-system, sans-serif;
+  --font-sans-accent: 'Montserrat', sans-serif;
+  --font-roman: 'Cinzel', serif;
+
+  --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.05);
+  --shadow-md: 0 6px 18px rgba(0, 0, 0, 0.08);
+  --shadow-lg: 0 12px 36px rgba(0, 0, 0, 0.12);
+  --shadow-card: 0 4px 20px rgba(68, 107, 119, 0.08);
+
+  --radius-sm: 8px;
+  --radius-md: 16px;
+  --radius-lg: 24px;
+  --radius-pill: 9999px;
+
+  --transition-smooth: all 0.4s cubic-bezier(0.25, 1, 0.5, 1);
+  --ease-reveal: cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* ---------- Reset & Base ---------- */
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  -webkit-text-size-adjust: 100%;
+  font-size: 16px;
+  background-color: #212c30;
+}
+
+body {
+  font-family: var(--font-sans-clean);
+  color: var(--color-text-main);
+  background-color: var(--color-bg-ivory);
+  line-height: 1.65;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body.no-scroll {
+  overflow: hidden !important;
+  height: 100vh;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+button {
+  font-family: inherit;
+  border: none;
+  background: none;
+  cursor: pointer;
+}
+
+/* ============================================================
+   BISDEV ENTRANCE ANIMATIONS (.ef SUITE)
+   ============================================================ */
+.ef {
+  position: relative;
+  transition: 1.8s var(--ease-reveal) all;
+  will-change: transform, opacity;
+}
+
+/* Zoom Down (Bisdev standard) */
+.ef.zoom-down {
+  transform: translateY(-38px) scale(1.06);
+  opacity: 0;
+}
+.ef.zoom-down.active {
+  transform: translateY(0) scale(1);
+  opacity: 1;
+}
+
+/* Zoom Up */
+.ef.zoom-up {
+  transform: translateY(45px) scale(0.92);
+  opacity: 0;
+}
+.ef.zoom-up.active {
+  transform: translateY(0) scale(1);
+  opacity: 1;
+}
+
+/* Slide Right */
+.ef.slide-right {
+  transform: translateX(-45px);
+  opacity: 0;
+}
+.ef.slide-right.active {
+  transform: translateX(0);
+  opacity: 1;
+}
+
+/* Slide Left */
+.ef.slide-left {
+  transform: translateX(45px);
+  opacity: 0;
+}
+.ef.slide-left.active {
+  transform: translateX(0);
+  opacity: 1;
+}
+
+/* Staggered Delays */
+.ef.delay-1 { transition-delay: 0.15s; }
+.ef.delay-2 { transition-delay: 0.3s; }
+.ef.delay-3 { transition-delay: 0.45s; }
+.ef.delay-4 { transition-delay: 0.6s; }
+.ef.delay-5 { transition-delay: 0.75s; }
+.ef.delay-6 { transition-delay: 0.9s; }
+
+/* ============================================================
+   LOTTIE ANIMATED BIRDS
+   ============================================================ */
+.lottie-bird {
+  position: absolute;
+  pointer-events: none;
+  z-index: 10;
+}
+
+.cover-bird {
+  width: 90px;
+  height: 90px;
+  top: -10px;
+  right: 15px;
+  filter: drop-shadow(0 4px 10px rgba(0, 0, 0, 0.4));
+}
+
+.hero-bird {
+  width: 95px;
+  height: 95px;
+  top: 10%;
+  right: 12%;
+  filter: drop-shadow(0 4px 12px rgba(0, 0, 0, 0.3));
+}
+
+.couple-bird {
+  width: 75px;
+  height: 75px;
+  top: 35px;
+  left: 50%;
+  transform: translateX(-50%);
+  opacity: 0.85;
+}
+
+/* ============================================================
+   COVER SECTION (BATIK MOTIF: cvrr-1.jpg)
+   ============================================================ */
+.cover-section {
+  position: fixed;
+  inset: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 99999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #1e292c url('assets/img/taman_vintage_vektor.svg') center center/cover no-repeat;
+  transition: transform 1.35s cubic-bezier(0.77, 0, 0.175, 1);
+}
+
+.cover-section.opened {
+  transform: translateY(-100%);
+  pointer-events: none;
+}
+
+.cover-section.opened .cover-card {
+  transform: scale(0.92) translateY(-30px);
+  opacity: 0;
+  transition: transform 0.6s ease, opacity 0.6s ease;
+}
+
+
+.cover-overlay {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at center, rgba(30, 41, 44, 0.58) 0%, rgba(18, 25, 27, 0.88) 100%);
+  backdrop-filter: blur(2px);
+}
+
+.cover-card {
+  position: relative;
+  z-index: 2;
+  text-align: center;
+  padding: 2.5rem 1.5rem;
+  max-width: 420px;
+  width: 90%;
+  color: #fff;
+  transition: transform 0.8s ease, opacity 0.8s ease;
+}
+
+.cover-label {
+  font-family: var(--font-roman);
+  font-size: 0.95rem;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: var(--color-gold-light);
+  margin-bottom: 1.25rem;
+}
+
+.cover-photo-frame {
+  width: 130px;
+  height: 165px;
+  margin: 0 auto 1.25rem;
+  border-radius: 90px 90px 8px 8px;
+  padding: 5px;
+  border: 2px solid var(--color-gold);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.4);
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.cover-couple-photo {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 85px 85px 5px 5px;
+  filter: contrast(1.05);
+}
+
+.cover-names {
+  font-family: var(--font-serif-luxury);
+  font-size: clamp(2.4rem, 8vw, 3.2rem);
+  font-weight: 500;
+  line-height: 1.15;
+  color: #ffffff;
+  margin-bottom: 1.5rem;
+  letter-spacing: 0.02em;
+  text-shadow: 0 2px 15px rgba(0, 0, 0, 0.4);
+}
+
+.cover-guest-intro {
+  font-size: 0.85rem;
+  letter-spacing: 0.1em;
+  color: rgba(255, 255, 255, 0.8);
+  margin-bottom: 0.4rem;
+}
+
+.cover-guest-box {
+  display: inline-block;
+  padding: 0.4rem 1.2rem;
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px dashed rgba(223, 193, 129, 0.5);
+  border-radius: var(--radius-sm);
+  margin-bottom: 1.8rem;
+}
+
+.cover-guest-name {
+  font-family: var(--font-serif-luxury);
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: #ffffff;
+  letter-spacing: 0.05em;
+}
+
+.btn-open-invitation {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.6rem;
+  background: linear-gradient(135deg, var(--color-primary-teal), var(--color-primary-dark));
+  color: #ffffff;
+  padding: 0.85rem 1.8rem;
+  border-radius: var(--radius-pill);
+  font-size: 0.95rem;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  box-shadow: 0 6px 20px rgba(68, 107, 119, 0.4);
+  border: 1px solid var(--color-gold-light);
+  transition: var(--transition-smooth);
+  animation: pulseOpenBtn 2.2s infinite;
+  position: relative;
+  overflow: hidden;
+}
+
+.btn-open-invitation:hover {
+  transform: translateY(-2px) scale(1.03);
+  box-shadow: 0 10px 28px rgba(68, 107, 119, 0.6);
+}
+
+@keyframes pulseOpenBtn {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(197, 160, 89, 0.5); }
+  50% { box-shadow: 0 0 0 12px rgba(197, 160, 89, 0); }
+}
+
+/* Button Shimmer Wave */
+.btn-open-invitation::after,
+.btn-save-the-date::after,
+.btn-toggle-amplop::after,
+.btn-location::after {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -60%;
+  width: 40%;
+  height: 200%;
+  background: linear-gradient(
+    to right,
+    rgba(255, 255, 255, 0) 0%,
+    rgba(255, 255, 255, 0.35) 50%,
+    rgba(255, 255, 255, 0) 100%
+  );
+  transform: rotate(30deg);
+  animation: shimmerBtn 4s infinite ease-in-out;
+}
+
+@keyframes shimmerBtn {
+  0% { left: -60%; }
+  35%, 100% { left: 140%; }
+}
+
+/* ============================================================
+   DESKTOP SPLIT LAYOUT (BATIK MOTIF: batik-cover.jpg)
+   ============================================================ */
+.desktop-layout-container {
+  display: flex;
+  width: 100%;
+  min-height: 100vh;
+  background: #1b2326;
+}
+
+/* Left Hero Banner (Desktop only) */
+.desktop-hero-panel {
+  display: none;
+}
+
+@media (min-width: 992px) {
+  .desktop-hero-panel {
+    display: flex;
+    flex: 1;
+    position: sticky;
+    top: 0;
+    height: 100vh;
+    overflow: hidden;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 3rem;
+  }
+
+  .desktop-hero-bg {
+    position: absolute;
+    inset: 0;
+    background: url('assets/img/taman_vintage_vektor.svg') center/cover no-repeat;
+    filter: brightness(0.85) contrast(1.05);
+  }
+
+  .desktop-hero-bg::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg, rgba(28, 44, 49, 0.72) 0%, rgba(14, 22, 25, 0.86) 100%);
+  }
+
+  .desktop-hero-content {
+    position: relative;
+    z-index: 2;
+    max-width: 500px;
+    color: #fff;
+    padding: 2.5rem;
+    border: 1px solid rgba(223, 193, 129, 0.35);
+    background: rgba(20, 28, 30, 0.4);
+    backdrop-filter: blur(10px);
+    border-radius: var(--radius-md);
+  }
+
+  .desktop-hero-subtitle {
+    font-family: var(--font-roman);
+    font-size: 1.1rem;
+    letter-spacing: 0.3em;
+    color: var(--color-gold-light);
+    text-transform: uppercase;
+    margin-bottom: 0.75rem;
+  }
+
+  .desktop-hero-names {
+    font-family: var(--font-serif-luxury);
+    font-size: 3.8rem;
+    font-weight: 500;
+    color: #ffffff;
+    line-height: 1.15;
+    margin-bottom: 1rem;
+    text-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+  }
+
+  .desktop-hero-divider {
+    margin: 1rem auto;
+    width: 220px;
+  }
+
+  .desktop-hero-date {
+    font-family: var(--font-sans-accent);
+    font-size: 1.15rem;
+    letter-spacing: 0.2em;
+    color: var(--color-gold);
+    margin-bottom: 2rem;
+  }
+
+  .desktop-hero-quote {
+    border-top: 1px solid rgba(223, 193, 129, 0.2);
+    padding-top: 1.5rem;
+    font-family: var(--font-serif-luxury);
+    font-size: 1.05rem;
+    font-style: italic;
+    color: rgba(255, 255, 255, 0.85);
+    line-height: 1.6;
+  }
+
+  .desktop-hero-quote span {
+    display: block;
+    margin-top: 0.5rem;
+    font-size: 0.9rem;
+    font-style: normal;
+    color: var(--color-gold-light);
+  }
+}
+
+/* Right Scrollable Phone Viewport */
+.invitation-phone-frame {
+  width: 100%;
+  min-height: 100vh;
+  background-color: var(--color-bg-ivory);
+  position: relative;
+}
+
+@media (min-width: 992px) {
+  .invitation-phone-frame {
+    width: 480px;
+    max-width: 480px;
+    height: 100vh;
+    overflow-y: auto;
+    box-shadow: -12px 0 45px rgba(0, 0, 0, 0.45);
+    scrollbar-width: thin;
+    scrollbar-color: var(--color-gold-light) transparent;
+  }
+
+  .invitation-phone-frame::-webkit-scrollbar {
+    width: 5px;
+  }
+
+  .invitation-phone-frame::-webkit-scrollbar-thumb {
+    background-color: var(--color-gold-light);
+    border-radius: 10px;
+  }
+}
+
+.invitation-scroll-area {
+  position: relative;
+  min-height: 100vh;
+}
+
+/* ============================================================
+   SECTIONS GENERAL WITH AUTHENTIC BATIK MOTIFS
+   ============================================================ */
+.section {
+  padding: 4.5rem 1.5rem;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.section-heading {
+  font-family: var(--font-serif-luxury);
+  font-size: 2.1rem;
+  font-weight: 600;
+  color: var(--color-primary-teal);
+  margin-bottom: 0.75rem;
+  line-height: 1.25;
+}
+
+.section-title-vintage {
+  font-family: var(--font-serif-luxury);
+  font-size: 2.4rem;
+  font-weight: 500;
+  color: var(--color-primary-teal);
+  margin-bottom: 0.5rem;
+  letter-spacing: 0.02em;
+}
+
+.event-divider,
+.divider-wrap {
+  width: 180px;
+  margin: 0.5rem auto 1.5rem;
+  opacity: 0.85;
+}
+
+.divider-img {
+  width: 100%;
+  height: auto;
+  filter: sepia(0.2);
+}
+
+/* ============================================================
+   SECTION: HERO SLIDE (Slide Awal)
+   ============================================================ */
+.hero-slide {
+  min-height: 90vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  padding: 4rem 1.5rem;
+  color: #fff;
+  overflow: hidden;
+}
+
+.hero-slide-bg {
+  position: absolute;
+  inset: 0;
+  background: url('assets/img/taman_vintage_vektor.svg') center center/cover no-repeat;
+  filter: contrast(1.05);
+}
+
+.hero-slide-bg::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at center, rgba(20, 32, 36, 0.45) 0%, rgba(14, 22, 25, 0.76) 100%);
+}
+
+.hero-content {
+  position: relative;
+  z-index: 2;
+  text-align: center;
+}
+
+.hero-tagline {
+  font-family: var(--font-roman);
+  font-size: 0.95rem;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: var(--color-gold-light);
+  margin-bottom: 1.2rem;
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.75);
+}
+
+.hero-title {
+  font-family: var(--font-serif-luxury);
+  font-size: clamp(2.8rem, 10vw, 3.8rem);
+  font-weight: 500;
+  line-height: 1.15;
+  color: #ffffff;
+  margin-bottom: 1.25rem;
+  text-shadow: 0 4px 20px rgba(0, 0, 0, 0.8), 0 2px 8px rgba(0, 0, 0, 0.9);
+}
+
+.hero-date {
+  font-family: var(--font-sans-accent);
+  font-size: 1.1rem;
+  letter-spacing: 0.2em;
+  color: var(--color-gold);
+  margin-bottom: 2.2rem;
+}
+
+.btn-save-the-date {
+  display: inline-block;
+  padding: 0.7rem 1.8rem;
+  background: transparent;
+  color: #ffffff;
+  border: 1px solid var(--color-gold);
+  border-radius: var(--radius-pill);
+  font-size: 0.85rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  transition: var(--transition-smooth);
+  position: relative;
+  overflow: hidden;
+}
+
+.btn-save-the-date:hover {
+  background: var(--color-gold);
+  color: var(--color-primary-deep);
+  transform: translateY(-2px);
+}
+
+/* ============================================================
+   SECTION: OPENING (BATIK MOTIF: ART-WHITE-02 / batik-bg-2.webp)
+   ============================================================ */
+.opening-section {
+  padding: 4.5rem 1.8rem;
+  background-color: var(--color-bg-cream);
+  background-image: linear-gradient(rgba(246, 239, 228, 0.88), rgba(246, 239, 228, 0.92)), url('assets/img/batik-bg-2.webp');
+  background-position: center center;
+  background-size: cover;
+}
+
+.monogram-badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  border: 1.5px solid var(--color-gold);
+  margin-bottom: 1.8rem;
+  background: var(--color-bg-ivory);
+  box-shadow: 0 4px 15px rgba(197, 160, 89, 0.15);
+  animation: gentleFloat 4s ease-in-out infinite;
+}
+
+@keyframes gentleFloat {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-7px); }
+}
+
+.monogram-text {
+  font-family: var(--font-serif-luxury);
+  font-size: 1.8rem;
+  font-weight: 600;
+  color: var(--color-primary-teal);
+  letter-spacing: 0.05em;
+}
+
+.quran-quote {
+  font-family: var(--font-serif-luxury);
+  font-size: 1.12rem;
+  font-style: italic;
+  color: var(--color-text-main);
+  line-height: 1.8;
+  max-width: 420px;
+  margin: 0 auto;
+}
+
+.quran-ref {
+  display: block;
+  margin-top: 1.25rem;
+  font-family: var(--font-sans-clean);
+  font-size: 0.88rem;
+  font-weight: 600;
+  font-style: normal;
+  color: var(--color-primary-teal);
+  letter-spacing: 0.05em;
+}
+
+/* ============================================================
+   SECTION: MEMPELAI (BATIK MOTIF: ART-WHITE-03 / batik-bg-3.jpg)
+   ============================================================ */
+.couple-section {
+  padding: 4.5rem 1.8rem;
+  background-color: var(--color-bg-ivory);
+  background-image: linear-gradient(rgba(253, 251, 247, 0.88), rgba(253, 251, 247, 0.93)), url('assets/img/batik-bg-3.jpg');
+  background-position: bottom center;
+  background-size: cover;
+}
+
+.couple-intro-text {
+  font-size: 0.92rem;
+  color: var(--color-text-muted);
+  max-width: 380px;
+  margin: 0 auto 2.5rem;
+  line-height: 1.7;
+}
+
+.couple-profile {
+  margin-bottom: 1.5rem;
+}
+
+.profile-photo-wrapper {
+  width: 170px;
+  height: 220px;
+  margin: 0 auto 1.25rem;
+  border-radius: 100px 100px 16px 16px;
+  padding: 6px;
+  background: var(--color-bg-ivory);
+  border: 2px solid var(--color-gold);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+  transition: transform 0.4s ease;
+}
+
+.profile-photo-wrapper:hover {
+  transform: translateY(-4px) scale(1.02);
+}
+
+.profile-photo {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 94px 94px 10px 10px;
+}
+
+.profile-name {
+  font-family: var(--font-serif-luxury);
+  font-size: 1.85rem;
+  font-weight: 600;
+  color: var(--color-primary-teal);
+  margin-bottom: 0.5rem;
+}
+
+.profile-parents {
+  font-size: 0.9rem;
+  color: var(--color-text-muted);
+  line-height: 1.6;
+  margin-bottom: 1rem;
+}
+
+.profile-parents strong {
+  color: var(--color-text-main);
+  font-weight: 600;
+}
+
+.btn-instagram {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.35rem 0.9rem;
+  border-radius: var(--radius-pill);
+  background: var(--color-primary-teal);
+  color: #fff;
+  font-size: 0.8rem;
+  font-weight: 500;
+  transition: var(--transition-smooth);
+}
+
+.btn-instagram:hover {
+  background: var(--color-primary-dark);
+  transform: translateY(-2px);
+}
+
+.couple-ampersand {
+  font-family: var(--font-serif-luxury);
+  font-size: 3rem;
+  font-weight: 400;
+  color: var(--color-gold);
+  margin: 1.5rem 0;
+  line-height: 1;
+}
+
+/* ============================================================
+   SECTION: SAVE THE DATE (BATIK MOTIF: ART-WHITE-04 / batik-bg-4.jpg)
+   ============================================================ */
+.date-section {
+  padding: 4.5rem 1.8rem;
+  background-color: var(--color-bg-cream);
+  background-image: linear-gradient(rgba(246, 239, 228, 0.86), rgba(246, 239, 228, 0.92)), url('assets/img/batik-bg-4.jpg');
+  background-position: top center;
+  background-size: cover;
+}
+
+.frame-ornament-wrap {
+  width: 190px;
+  margin: 0 auto 1.25rem;
+}
+
+.frame-ornament-img {
+  width: 100%;
+  height: auto;
+}
+
+.date-message {
+  font-size: 0.92rem;
+  color: var(--color-text-muted);
+  max-width: 360px;
+  margin: 0.5rem auto 2rem;
+  line-height: 1.7;
+}
+
+.countdown-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem;
+  margin-top: 1.5rem;
+}
+
+.countdown-card {
+  flex: 1;
+  max-width: 80px;
+  background: #ffffff;
+  border: 1px solid var(--color-gold-border);
+  border-radius: var(--radius-md);
+  padding: 0.9rem 0.4rem;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.04);
+  transition: transform 0.3s ease;
+}
+
+.countdown-card:hover {
+  transform: translateY(-3px);
+}
+
+.countdown-digit {
+  display: block;
+  font-family: var(--font-serif-luxury);
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--color-primary-teal);
+  line-height: 1.1;
+  margin-bottom: 0.2rem;
+}
+
+.countdown-unit {
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--color-text-muted);
+}
+
+/* ============================================================
+   SECTION: ACARA (BATIK MOTIF: ART-WHITE-01 / batik-bg-1.webp)
+   ============================================================ */
+.event-section {
+  padding: 4.5rem 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  background-color: var(--color-bg-ivory);
+}
+
+.event-card {
+  background-color: var(--color-bg-card);
+  background-image: linear-gradient(rgba(255, 255, 255, 0.92), rgba(255, 255, 255, 0.96)), url('assets/img/batik-bg-1.webp');
+  background-position: center center;
+  background-size: cover;
+  border: 1px solid var(--color-gold-border);
+  border-radius: var(--radius-lg);
+  padding: 2.5rem 1.5rem;
+  box-shadow: var(--shadow-card);
+  position: relative;
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+}
+
+.event-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-lg);
+}
+
+.event-title {
+  font-family: var(--font-serif-luxury);
+  font-size: 2rem;
+  font-weight: 600;
+  color: var(--color-primary-teal);
+  margin-bottom: 0.25rem;
+}
+
+.event-day-date {
+  font-family: var(--font-sans-accent);
+  font-size: 1.05rem;
+  font-weight: 600;
+  color: var(--color-text-main);
+  margin-bottom: 0.35rem;
+}
+
+.event-clock {
+  font-size: 0.9rem;
+  color: var(--color-text-muted);
+  margin-bottom: 1.25rem;
+}
+
+.event-location-box {
+  background: rgba(68, 107, 119, 0.05);
+  border-radius: var(--radius-md);
+  padding: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.event-venue-name {
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: var(--color-primary-teal);
+  letter-spacing: 0.05em;
+  margin-bottom: 0.25rem;
+}
+
+.event-venue-address {
+  font-size: 0.85rem;
+  color: var(--color-text-muted);
+  line-height: 1.5;
+}
+
+.btn-location,
+.btn-streaming {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  background: var(--color-primary-teal);
+  color: #fff;
+  padding: 0.7rem 1.6rem;
+  border-radius: var(--radius-pill);
+  font-size: 0.85rem;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  transition: var(--transition-smooth);
+  box-shadow: 0 4px 12px rgba(68, 107, 119, 0.25);
+  position: relative;
+  overflow: hidden;
+}
+
+.btn-location:hover,
+.btn-streaming:hover {
+  background: var(--color-primary-dark);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 18px rgba(68, 107, 119, 0.35);
+}
+
+/* ============================================================
+   SECTION: LIVE STREAMING
+   ============================================================ */
+.streaming-section {
+  padding: 4rem 1.5rem;
+  background-color: var(--color-bg-cream);
+  background-image: linear-gradient(rgba(246, 239, 228, 0.9), rgba(246, 239, 228, 0.94)), url('assets/img/batik-bg-1.webp');
+  background-position: center center;
+  background-size: cover;
+}
+
+.streaming-desc {
+  font-size: 0.92rem;
+  color: var(--color-text-muted);
+  max-width: 380px;
+  margin: 0 auto 1.25rem;
+  line-height: 1.65;
+}
+
+.streaming-time {
+  font-weight: 600;
+  color: var(--color-primary-teal);
+  font-size: 0.95rem;
+  margin-bottom: 1.5rem;
+  line-height: 1.6;
+}
+
+/* ============================================================
+   SECTION: LOVE STORY (BATIK MOTIF: ART-WHITE-06 / batik-bg-6.webp)
+   ============================================================ */
+.story-section {
+  padding: 4.5rem 1.5rem;
+  background-color: var(--color-bg-ivory);
+  background-image: linear-gradient(rgba(253, 251, 247, 0.88), rgba(253, 251, 247, 0.92)), url('assets/img/batik-bg-6.webp');
+  background-position: top center;
+  background-size: cover;
+}
+
+.story-image-wrap {
+  width: 100%;
+  max-width: 360px;
+  margin: 0 auto 2.5rem;
+  border-radius: var(--radius-md);
+  padding: 6px;
+  background: #fff;
+  border: 1px solid var(--color-gold-border);
+  box-shadow: var(--shadow-md);
+}
+
+.story-image {
+  width: 100%;
+  border-radius: calc(var(--radius-md) - 4px);
+  display: block;
+}
+
+.story-timeline {
+  position: relative;
+  max-width: 380px;
+  margin: 0 auto;
+  text-align: left;
+  padding-left: 2rem;
+}
+
+.story-timeline::before {
+  content: '';
+  position: absolute;
+  top: 10px;
+  bottom: 10px;
+  left: 7px;
+  width: 2px;
+  background: linear-gradient(180deg, var(--color-gold) 0%, var(--color-primary-teal) 100%);
+  opacity: 0.4;
+}
+
+.timeline-entry {
+  position: relative;
+  margin-bottom: 2rem;
+  padding-bottom: 0.5rem;
+}
+
+.timeline-dot {
+  position: absolute;
+  left: -2rem;
+  top: 4px;
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background: var(--color-bg-ivory);
+  border: 3px solid var(--color-gold);
+  box-shadow: 0 0 0 3px rgba(197, 160, 89, 0.2);
+}
+
+.timeline-dot::after {
+  content: '';
+  position: absolute;
+  inset: -6px;
+  border-radius: 50%;
+  border: 1px solid var(--color-gold);
+  animation: pulseRing 2.5s infinite;
+}
+
+@keyframes pulseRing {
+  0% { transform: scale(0.9); opacity: 0.8; }
+  100% { transform: scale(1.6); opacity: 0; }
+}
+
+.timeline-heading {
+  font-family: var(--font-serif-luxury);
+  font-size: 1.4rem;
+  font-weight: 600;
+  color: var(--color-primary-teal);
+  margin-bottom: 0.35rem;
+}
+
+.timeline-text {
+  font-size: 0.88rem;
+  color: var(--color-text-muted);
+  line-height: 1.65;
+}
+
+/* ============================================================
+   SECTION: GALERI FOTO & VIDEO (BATIK MOTIF: ART-WHITE-06 / batik-bg-6.webp)
+   ============================================================ */
+.gallery-section {
+  padding: 4.5rem 1.5rem;
+  background-color: var(--color-bg-cream);
+  background-image: linear-gradient(rgba(246, 239, 228, 0.9), rgba(246, 239, 228, 0.94)), url('assets/img/batik-bg-6.webp');
+  background-position: bottom center;
+  background-size: cover;
+}
+
+.gallery-video-container {
+  width: 100%;
+  max-width: 420px;
+  margin: 0 auto 2rem;
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  box-shadow: var(--shadow-md);
+  aspect-ratio: 16 / 9;
+  border: 2px solid var(--color-gold-border);
+}
+
+.gallery-video-frame {
+  width: 100%;
+  height: 100%;
+  border: none;
+}
+
+.gallery-grid-container {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 0.75rem;
+  max-width: 420px;
+  margin: 0 auto;
+}
+
+.gallery-thumb {
+  position: relative;
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  aspect-ratio: 3 / 4;
+  cursor: pointer;
+  box-shadow: var(--shadow-sm);
+  border: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.gallery-thumb img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.6s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+.thumb-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(47, 78, 87, 0.45);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.gallery-thumb:hover img {
+  transform: scale(1.08);
+}
+
+.gallery-thumb:hover .thumb-overlay {
+  opacity: 1;
+}
+
+/* ============================================================
+   SECTION: AMPLOP DIGITAL (BATIK MOTIF: ART-WHITE-02 & bg-bank)
+   ============================================================ */
+.amplop-section {
+  padding: 4.5rem 1.5rem;
+  background-color: var(--color-bg-ivory);
+  background-image: linear-gradient(rgba(253, 251, 247, 0.88), rgba(253, 251, 247, 0.92)), url('assets/img/batik-bg-2.webp');
+  background-position: center center;
+  background-size: cover;
+}
+
+.amplop-lead-text {
+  font-size: 0.92rem;
+  color: var(--color-text-muted);
+  max-width: 380px;
+  margin: 0 auto 1.5rem;
+  line-height: 1.65;
+}
+
+.btn-toggle-amplop {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: var(--color-primary-teal);
+  color: #fff;
+  padding: 0.75rem 1.8rem;
+  border-radius: var(--radius-pill);
+  font-size: 0.9rem;
+  font-weight: 600;
+  transition: var(--transition-smooth);
+  box-shadow: 0 4px 15px rgba(68, 107, 119, 0.25);
+  position: relative;
+  overflow: hidden;
+}
+
+.btn-toggle-amplop:hover {
+  background: var(--color-primary-dark);
+  transform: translateY(-2px);
+}
+
+.amplop-cards-wrapper {
+  max-height: 0;
+  overflow: hidden;
+  opacity: 0;
+  transition: max-height 0.8s cubic-bezier(0.25, 1, 0.5, 1), opacity 0.5s ease;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  max-width: 380px;
+  margin: 0 auto;
+}
+
+.amplop-cards-wrapper.expanded {
+  max-height: 1500px;
+  opacity: 1;
+  margin-top: 2rem;
+}
+
+/* Realistic ATM Cards with bg-bank Batik Motif & Metallic Glare */
+.atm-card {
+  border-radius: var(--radius-md);
+  padding: 1.5rem;
+  color: #ffffff;
+  text-align: left;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+  position: relative;
+  overflow: hidden;
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+  background-size: cover;
+  background-position: center right;
+}
+
+.atm-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.22);
+}
+
+.atm-card::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(115deg, transparent 40%, rgba(255, 255, 255, 0.14) 50%, transparent 60%);
+  transform: translateX(-100%);
+  transition: transform 0.8s ease;
+}
+
+.atm-card:hover::after {
+  transform: translateX(100%);
+}
+
+.atm-bca {
+  background-image: linear-gradient(135deg, rgba(13, 56, 117, 0.92), rgba(0, 31, 77, 0.96)), url('assets/img/bg-bank.webp');
+  border: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+.atm-mandiri {
+  background-image: linear-gradient(135deg, rgba(14, 59, 94, 0.92), rgba(6, 31, 51, 0.96)), url('assets/img/bg-bank.webp');
+  border: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+.atm-card-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 1.25rem;
+}
+
+.atm-chip-img {
+  width: 42px;
+  height: auto;
+}
+
+.atm-bank-logo {
+  height: 28px;
+  width: auto;
+  filter: brightness(0) invert(1);
+}
+
+.bank-text-logo {
+  font-family: var(--font-sans-accent);
+  font-weight: 800;
+  letter-spacing: 0.15em;
+  font-size: 1.1rem;
+  color: #ffb800;
+}
+
+.atm-card-body {
+  margin-bottom: 1.25rem;
+}
+
+.atm-number {
+  font-family: 'Courier New', Courier, monospace;
+  font-size: 1.35rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  color: #ffffff;
+  margin-bottom: 0.35rem;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
+}
+
+.atm-holder {
+  font-size: 0.9rem;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.85);
+}
+
+.atm-card-footer {
+  text-align: right;
+}
+
+.btn-copy-card {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  background: rgba(255, 255, 255, 0.18);
+  color: #fff;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  padding: 0.45rem 1rem;
+  border-radius: var(--radius-sm);
+  font-size: 0.8rem;
+  font-weight: 600;
+  backdrop-filter: blur(4px);
+  transition: var(--transition-smooth);
+}
+
+.btn-copy-card:hover {
+  background: #ffffff;
+  color: #001f4d;
+}
+
+/* Kirim Hadiah Card with bg-bank Batik Motif */
+.gift-send-card {
+  background-color: #ffffff;
+  background-image: linear-gradient(rgba(255, 255, 255, 0.93), rgba(255, 255, 255, 0.97)), url('assets/img/bg-bank.webp');
+  background-position: center center;
+  background-size: cover;
+  border: 1px solid var(--color-gold-border);
+  border-radius: var(--radius-md);
+  padding: 1.5rem;
+  text-align: left;
+  box-shadow: var(--shadow-sm);
+}
+
+.gift-icon-badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: rgba(68, 107, 119, 0.1);
+  color: var(--color-primary-teal);
+  margin-bottom: 0.75rem;
+}
+
+.gift-card-title {
+  font-family: var(--font-serif-luxury);
+  font-size: 1.4rem;
+  font-weight: 600;
+  color: var(--color-primary-teal);
+  margin-bottom: 0.75rem;
+}
+
+.gift-info-row {
+  display: flex;
+  font-size: 0.85rem;
+  margin-bottom: 0.4rem;
+  line-height: 1.5;
+}
+
+.gift-label {
+  width: 110px;
+  color: var(--color-text-muted);
+  font-weight: 500;
+}
+
+.gift-val {
+  flex: 1;
+  color: var(--color-text-main);
+  font-weight: 600;
+}
+
+.gift-send-card .btn-copy-card {
+  background: var(--color-primary-teal);
+  color: #fff;
+  border: none;
+  margin-top: 0.75rem;
+}
+
+.gift-send-card .btn-copy-card:hover {
+  background: var(--color-primary-dark);
+}
+
+/* ============================================================
+   SECTION: RSVP & WISHES WALL
+   ============================================================ */
+.rsvp-section {
+  padding: 4.5rem 1.5rem;
+  background-color: var(--color-bg-cream);
+  background-image: linear-gradient(rgba(246, 239, 228, 0.9), rgba(246, 239, 228, 0.94)), url('assets/img/batik-bg-4.jpg');
+  background-position: bottom center;
+  background-size: cover;
+}
+
+.rsvp-subheading {
+  font-size: 0.92rem;
+  color: var(--color-text-muted);
+  margin-bottom: 1.5rem;
+}
+
+.rsvp-stats-row {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  margin-bottom: 1.8rem;
+}
+
+.stat-badge {
+  padding: 0.6rem 1.4rem;
+  border-radius: var(--radius-pill);
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.88rem;
+  font-weight: 600;
+  transition: transform 0.3s ease;
+}
+
+.stat-badge:hover {
+  transform: scale(1.04);
+}
+
+.stat-hadir {
+  background: #e8f5e9;
+  color: #2e7d32;
+  border: 1px solid #c8e6c9;
+}
+
+.stat-tidak {
+  background: #ffebee;
+  color: #c62828;
+  border: 1px solid #ffcdd2;
+}
+
+.stat-count {
+  font-size: 1.1rem;
+  font-weight: 700;
+}
+
+.rsvp-form-card {
+  background: #ffffff;
+  border: 1px solid var(--color-gold-border);
+  border-radius: var(--radius-lg);
+  padding: 2rem 1.5rem;
+  box-shadow: var(--shadow-card);
+  max-width: 400px;
+  margin: 0 auto 2.5rem;
+  text-align: left;
+}
+
+.form-row {
+  margin-bottom: 1.25rem;
+}
+
+.form-input,
+.form-textarea {
+  width: 100%;
+  padding: 0.85rem 1rem;
+  border: 1px solid rgba(0, 0, 0, 0.12);
+  border-radius: var(--radius-sm);
+  font-family: inherit;
+  font-size: 0.9rem;
+  color: var(--color-text-main);
+  background: var(--color-bg-ivory);
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.form-input:focus,
+.form-textarea:focus {
+  outline: none;
+  border-color: var(--color-primary-teal);
+  box-shadow: 0 0 0 3px rgba(68, 107, 119, 0.15);
+}
+
+.form-field-label {
+  display: block;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--color-text-muted);
+  margin-bottom: 0.5rem;
+}
+
+.presence-pills {
+  display: flex;
+  gap: 0.6rem;
+}
+
+.presence-pill {
+  flex: 1;
+  padding: 0.65rem 0.5rem;
+  border: 1px solid rgba(0, 0, 0, 0.12);
+  border-radius: var(--radius-sm);
+  background: #fdfdfd;
+  color: var(--color-text-muted);
+  font-size: 0.85rem;
+  font-weight: 600;
+  text-align: center;
+  transition: var(--transition-smooth);
+}
+
+.presence-pill.pill-active {
+  background: var(--color-primary-teal);
+  color: #ffffff;
+  border-color: var(--color-primary-teal);
+  box-shadow: 0 3px 10px rgba(68, 107, 119, 0.25);
+}
+
+.btn-rsvp-submit {
+  width: 100%;
+  padding: 0.85rem;
+  background: var(--color-primary-teal);
+  color: #fff;
+  border-radius: var(--radius-pill);
+  font-size: 0.95rem;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  transition: var(--transition-smooth);
+  box-shadow: 0 4px 15px rgba(68, 107, 119, 0.25);
+}
+
+.btn-rsvp-submit:hover {
+  background: var(--color-primary-dark);
+  transform: translateY(-2px);
+}
+
+/* Wishes List */
+.wishes-list-container {
+  max-width: 400px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  max-height: 480px;
+  overflow-y: auto;
+  padding-right: 4px;
+}
+
+.wish-card {
+  background: #ffffff;
+  border: 1px solid rgba(0, 0, 0, 0.06);
+  border-radius: var(--radius-md);
+  padding: 1.15rem 1.25rem;
+  text-align: left;
+  box-shadow: var(--shadow-sm);
+  animation: fadeInWish 0.5s ease-out;
+}
+
+@keyframes fadeInWish {
+  from { opacity: 0; transform: translateY(15px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.wish-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 0.4rem;
+}
+
+.wish-author {
+  font-size: 0.92rem;
+  font-weight: 700;
+  color: var(--color-primary-teal);
+}
+
+.wish-badge {
+  font-size: 0.72rem;
+  font-weight: 600;
+  padding: 0.15rem 0.55rem;
+  border-radius: var(--radius-pill);
+}
+
+.wish-badge-hadir {
+  background: #e8f5e9;
+  color: #2e7d32;
+}
+
+.wish-badge-tidak {
+  background: #ffebee;
+  color: #c62828;
+}
+
+.wish-time {
+  font-size: 0.75rem;
+  color: var(--color-text-light);
+  margin-bottom: 0.5rem;
+}
+
+.wish-content {
+  font-size: 0.88rem;
+  color: var(--color-text-main);
+  line-height: 1.55;
+  word-break: break-word;
+}
+
+/* ============================================================
+   SECTION: CLOSING (BATIK MOTIF: batik-cover.jpg) & FOOTER
+   ============================================================ */
+.closing-section {
+  padding: 5rem 1.8rem;
+  background-color: var(--color-bg-ivory);
+  background-image: linear-gradient(rgba(253, 251, 247, 0.86), rgba(253, 251, 247, 0.92)), url('assets/img/batik-cover.jpg');
+  background-position: bottom center;
+  background-size: cover;
+}
+
+.closing-photo-wrap {
+  width: 180px;
+  height: 230px;
+  margin: 0 auto 1.8rem;
+  border-radius: 90px 90px 12px 12px;
+  padding: 5px;
+  border: 2px solid var(--color-gold);
+  background: var(--color-bg-ivory);
+  box-shadow: var(--shadow-md);
+}
+
+.closing-photo {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 85px 85px 8px 8px;
+}
+
+.closing-text {
+  font-size: 0.92rem;
+  color: var(--color-text-muted);
+  max-width: 380px;
+  margin: 0 auto 1.8rem;
+  line-height: 1.7;
+}
+
+.closing-salam {
+  font-family: var(--font-serif-luxury);
+  font-size: 1.6rem;
+  color: var(--color-primary-teal);
+  margin-bottom: 0.4rem;
+}
+
+.closing-names {
+  font-family: var(--font-serif-luxury);
+  font-size: 2.4rem;
+  font-weight: 600;
+  color: var(--color-primary-teal);
+  letter-spacing: 0.02em;
+}
+
+.invitation-footer {
+  padding: 2.5rem 1rem 6rem;
+  text-align: center;
+  background: var(--color-primary-deep);
+  color: #ffffff;
+}
+
+.footer-watermark {
+  font-size: 0.88rem;
+  color: rgba(255, 255, 255, 0.7);
+  margin-bottom: 1rem;
+}
+
+.footer-socials {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.8rem;
+}
+
+.footer-social-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.12);
+  color: #ffffff;
+  transition: var(--transition-smooth);
+}
+
+.footer-social-btn:hover {
+  background: var(--color-gold);
+  color: var(--color-primary-deep);
+  transform: translateY(-2px);
+}
+
+/* ============================================================
+   FLOATING MUSIC BUTTON (Vinyl Disc with Musical Notes)
+   ============================================================ */
+.floating-music-btn {
+  position: fixed;
+  bottom: 80px;
+  right: 20px;
+  z-index: 1000;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: transparent;
+  transition: var(--transition-smooth);
+}
+
+@media (min-width: 992px) {
+  .floating-music-btn {
+    right: 24px;
+    bottom: 85px;
+  }
+}
+
+.vinyl-disc {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  background: radial-gradient(circle, #252525 25%, #111 26%, #1e1e1e 45%, #111 46%, #2e2e2e 70%, #111 100%);
+  border: 2px solid var(--color-gold);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  animation: spinVinyl 4s linear infinite;
+  box-shadow: 0 4px 18px rgba(0, 0, 0, 0.5);
+}
+
+.floating-music-btn.paused .vinyl-disc {
+  animation-play-state: paused;
+  filter: grayscale(0.6);
+  opacity: 0.75;
+}
+
+.vinyl-center {
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  background: var(--color-primary-teal);
+  border: 1px solid var(--color-gold-light);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.vinyl-hole {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #ffffff;
+}
+
+@keyframes spinVinyl {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+/* Floating Music Notes Animation */
+.music-note-float {
+  position: absolute;
+  font-size: 1.1rem;
+  color: var(--color-gold-light);
+  pointer-events: none;
+  opacity: 0;
+  font-weight: 700;
+}
+
+.floating-music-btn:not(.paused) .note-1 {
+  animation: floatNote 2.4s ease-in-out infinite 0.2s;
+}
+.floating-music-btn:not(.paused) .note-2 {
+  animation: floatNote 2.4s ease-in-out infinite 1s;
+}
+.floating-music-btn:not(.paused) .note-3 {
+  animation: floatNote 2.4s ease-in-out infinite 1.8s;
+}
+
+@keyframes floatNote {
+  0% { transform: translate(0, 0) scale(0.6); opacity: 0; }
+  35% { opacity: 0.95; }
+  100% { transform: translate(-20px, -48px) scale(1.15) rotate(-25deg); opacity: 0; }
+}
+
+/* ============================================================
+   BOTTOM DOCK NAVIGATION
+   ============================================================ */
+.bottom-dock-nav {
+  position: fixed;
+  bottom: 14px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.5rem 0.8rem;
+  background: rgba(33, 48, 52, 0.88);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(223, 193, 129, 0.35);
+  border-radius: var(--radius-pill);
+  box-shadow: 0 8px 28px rgba(0, 0, 0, 0.28);
+}
+
+@media (min-width: 992px) {
+  .bottom-dock-nav {
+    left: auto;
+    right: calc(480px / 2);
+    transform: translateX(50%);
+  }
+}
+
+.dock-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.2rem;
+  padding: 0.35rem 0.75rem;
+  color: rgba(255, 255, 255, 0.65);
+  font-size: 0.68rem;
+  font-weight: 500;
+  letter-spacing: 0.05em;
+  border-radius: var(--radius-pill);
+  transition: var(--transition-smooth);
+}
+
+.dock-item svg {
+  width: 18px;
+  height: 18px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.dock-item.active,
+.dock-item:hover {
+  color: var(--color-gold-light);
+  background: rgba(255, 255, 255, 0.1);
+  transform: translateY(-2px);
+}
+
+/* ============================================================
+   LIGHTBOX MODAL
+   ============================================================ */
+.lightbox-modal {
+  position: fixed;
+  inset: 0;
+  z-index: 999999;
+  background: rgba(10, 15, 17, 0.95);
+  display: none;
+  align-items: center;
+  justify-content: center;
+  padding: 1.5rem;
+  animation: fadeIn 0.3s ease;
+}
+
+.lightbox-modal.active {
+  display: flex;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.lightbox-content {
+  max-width: 90vw;
+  max-height: 85vh;
+}
+
+.lightbox-content img {
+  max-width: 100%;
+  max-height: 85vh;
+  object-fit: contain;
+  border-radius: var(--radius-sm);
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.8);
+  animation: zoomInLight 0.35s ease;
+}
+
+@keyframes zoomInLight {
+  from { transform: scale(0.92); opacity: 0; }
+  to { transform: scale(1); opacity: 1; }
+}
+
+.lightbox-close-btn {
+  position: absolute;
+  top: 20px;
+  right: 25px;
+  color: #fff;
+  font-size: 2.2rem;
+  cursor: pointer;
+  z-index: 10;
+  transition: transform 0.2s ease;
+}
+
+.lightbox-close-btn:hover {
+  transform: scale(1.15);
+}
+
+.lightbox-arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #fff;
+  font-size: 2rem;
+  background: rgba(255, 255, 255, 0.12);
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: var(--transition-smooth);
+  cursor: pointer;
+}
+
+.lightbox-prev { left: 20px; }
+.lightbox-next { right: 20px; }
+
+.lightbox-arrow:hover {
+  background: var(--color-gold);
+  color: var(--color-primary-deep);
+  transform: translateY(-50%) scale(1.08);
+}
+
+/* ============================================================
+   TOAST POPUP
+   ============================================================ */
+.toast-popup {
+  position: fixed;
+  top: 25px;
+  left: 50%;
+  transform: translateX(-50%) translateY(-30px);
+  z-index: 9999999;
+  background: var(--color-primary-deep);
+  color: #ffffff;
+  border: 1px solid var(--color-gold);
+  padding: 0.75rem 1.6rem;
+  border-radius: var(--radius-pill);
+  font-size: 0.88rem;
+  font-weight: 500;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+  opacity: 0;
+  pointer-events: none;
+  transition: all 0.35s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+.toast-popup.show {
+  transform: translateX(-50%) translateY(0);
+  opacity: 1;
+}
+
+/* ============================================================
+   FALLING PETALS (Romantic 3D Flutter)
+   ============================================================ */
+.petal {
+  position: fixed;
+  top: -25px;
+  z-index: 999;
+  pointer-events: none;
+  user-select: none;
+  animation: fallPetal linear forwards;
+}
+
+@keyframes fallPetal {
+  0% {
+    transform: translateY(0) rotate3d(1, 1, 0, 0deg) translateX(0);
+    opacity: 0.9;
+  }
+  25% {
+    transform: translateY(25vh) rotate3d(1, 0, 1, 90deg) translateX(18px);
+  }
+  50% {
+    transform: translateY(50vh) rotate3d(0, 1, 1, 180deg) translateX(-15px);
+    opacity: 0.8;
+  }
+  75% {
+    transform: translateY(75vh) rotate3d(1, 1, 0, 270deg) translateX(20px);
+  }
+  100% {
+    transform: translateY(105vh) rotate3d(1, 0, 1, 360deg) translateX(-10px);
+    opacity: 0;
+  }
+}
+
+/* ============================================================
+   ANIMATED BATIK ELEMENTS (MANDALAS, CORNERS & FLOATING TRUNTUM)
+   ============================================================ */
+
+/* --- 1. Rotating Batik Mandalas --- */
+.batik-mandala-wrap {
+  position: absolute;
+  pointer-events: none;
+  z-index: 1;
+  opacity: 0.65;
+  filter: drop-shadow(0 0 16px rgba(223, 193, 129, 0.45));
+  will-change: transform;
+}
+
+.batik-mandala {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+/* Animations */
+.spin-slow {
+  animation: spinBatik 48s linear infinite;
+}
+
+.spin-slow-reverse {
+  animation: spinBatikReverse 56s linear infinite;
+}
+
+.spin-ultra-slow {
+  animation: spinBatik 80s linear infinite, pulseBreathe 14s ease-in-out infinite;
+}
+
+@keyframes spinBatik {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+@keyframes spinBatikReverse {
+  from { transform: rotate(360deg); }
+  to { transform: rotate(0deg); }
+}
+
+@keyframes pulseBreathe {
+  0%, 100% {
+    transform: scale(1);
+    opacity: 0.35;
+  }
+  50% {
+    transform: scale(1.08);
+    opacity: 0.6;
+  }
+}
+
+/* Cover Section Mandala Positions */
+.cover-mandala-tl {
+  top: -70px;
+  left: -70px;
+  width: 250px;
+  height: 250px;
+}
+
+.cover-mandala-br {
+  bottom: -70px;
+  right: -70px;
+  width: 270px;
+  height: 270px;
+}
+
+/* Desktop Hero Backdrop Mandala */
+.desk-mandala-bg {
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 480px;
+  height: 480px;
+  opacity: 0.35;
+}
+
+/* Hero Slide Mandala Positions */
+.hero-mandala-top {
+  top: -50px;
+  right: -50px;
+  width: 200px;
+  height: 200px;
+  opacity: 0.55;
+}
+
+.hero-mandala-bottom {
+  bottom: -50px;
+  left: -50px;
+  width: 220px;
+  height: 220px;
+  opacity: 0.5;
+}
+
+/* --- 2. Batik Corner Accents for Cards --- */
+.card-batik-corner {
+  position: absolute;
+  width: 48px;
+  height: 48px;
+  pointer-events: none;
+  z-index: 5;
+  opacity: 0.85;
+}
+
+.card-batik-corner .corner-svg {
+  width: 100%;
+  height: 100%;
+  filter: drop-shadow(0 2px 6px rgba(0, 0, 0, 0.4));
+}
+
+.card-batik-corner.corner-tl {
+  top: 10px;
+  left: 10px;
+  animation: cornerGlowTL 3.5s ease-in-out infinite alternate;
+}
+
+.card-batik-corner.corner-br {
+  bottom: 10px;
+  right: 10px;
+  transform: rotate(180deg);
+  animation: cornerGlowBR 3.5s ease-in-out infinite alternate;
+}
+
+@keyframes cornerGlowTL {
+  0% {
+    opacity: 0.7;
+    transform: scale(0.96);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1.05);
+  }
+}
+
+@keyframes cornerGlowBR {
+  0% {
+    opacity: 0.7;
+    transform: rotate(180deg) scale(0.96);
+  }
+  100% {
+    opacity: 1;
+    transform: rotate(180deg) scale(1.05);
+  }
+}
+
+/* --- 3. Floating Ethereal Batik Truntum Particles --- */
+.batik-float-item {
+  position: fixed;
+  bottom: -40px;
+  z-index: 998;
+  pointer-events: none;
+  user-select: none;
+  animation: floatTruntum linear forwards;
+  will-change: transform, opacity;
+}
+
+.truntum-svg-float {
+  width: 100%;
+  height: 100%;
+  display: block;
+  filter: drop-shadow(0 0 8px rgba(223, 193, 129, 0.75)) drop-shadow(0 0 15px rgba(197, 160, 89, 0.4));
+}
+
+@keyframes floatTruntum {
+  0% {
+    transform: translateY(0) translateX(0) rotate(0deg) scale(0.6);
+    opacity: 0;
+  }
+  15% {
+    opacity: 0.9;
+  }
+  50% {
+    transform: translateY(-50vh) translateX(var(--drift-x, 30px)) rotate(180deg) scale(1);
+    opacity: 0.95;
+  }
+  85% {
+    opacity: 0.75;
+  }
+  100% {
+    transform: translateY(-110vh) translateX(calc(var(--drift-x, 30px) * -1)) rotate(360deg) scale(0.7);
+    opacity: 0;
+  }
+}
+
+
