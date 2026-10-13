@@ -420,6 +420,18 @@ button {
   letter-spacing: 0.05em;
 }
 
+#scrollProgress {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 100000;
+  width: 0;
+  height: 3px;
+  background: linear-gradient(90deg, #e6ca9c, #d4b278);
+  pointer-events: none;
+  transition: width 0.12s ease-out;
+}
+
 .btn-open-invitation {
   display: inline-flex;
   align-items: center;
@@ -1620,6 +1632,61 @@ button {
   color: #001f4d;
 }
 
+.btn-copy-card.is-copied {
+  color: #275b43;
+  background: #d8f0df;
+  border-color: #acd8bb;
+}
+
+.voice-note-widget {
+  width: min(100%, 300px);
+  margin: 1.5rem auto 0;
+  padding: 1rem;
+  text-align: center;
+  background: rgba(247, 214, 208, 0.48);
+  border: 1px solid rgba(196, 115, 130, 0.32);
+  border-radius: var(--radius-md);
+  box-shadow: 0 8px 20px rgba(196, 115, 130, 0.12);
+}
+
+.voice-note-label,
+.voice-note-fallback {
+  color: var(--color-text-muted);
+  font-size: 0.8rem;
+}
+
+.voice-note-label {
+  margin-bottom: 0.6rem;
+  color: var(--color-primary-deep);
+  font-weight: 700;
+}
+
+.voice-note-toggle {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.55rem;
+  padding: 0.65rem 1rem;
+  color: #fff;
+  background: linear-gradient(135deg, var(--color-primary-rose), var(--color-primary-dark));
+  border-radius: var(--radius-pill);
+  box-shadow: 0 6px 16px rgba(196, 115, 130, 0.24);
+  transition: var(--transition-smooth);
+}
+
+.voice-note-toggle:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(196, 115, 130, 0.35);
+}
+
+.voice-note-icon {
+  font-size: 0.75rem;
+}
+
+.voice-note-fallback {
+  display: none;
+  margin-top: 0.6rem;
+}
+
 /* Kirim Hadiah Card with bg-bank Batik Motif */
 .gift-send-card {
   background-color: #ffffff;
@@ -1970,6 +2037,44 @@ button {
   align-items: center;
   justify-content: center;
   gap: 0.8rem;
+}
+
+.footer-personalization {
+  margin: 1.25rem auto 1.5rem;
+}
+
+.footer-feature-title {
+  margin-bottom: 0.7rem;
+  color: var(--color-gold-light);
+  font-size: 0.8rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.footer-feature-actions {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.65rem;
+}
+
+.footer-feature-btn {
+  padding: 0.55rem 0.9rem;
+  color: var(--color-gold-light);
+  border: 1px solid var(--color-gold-light);
+  border-radius: var(--radius-pill);
+  font-size: 0.78rem;
+  transition: var(--transition-smooth);
+}
+
+.footer-feature-btn:hover {
+  color: var(--color-primary-deep);
+  background: var(--color-gold-light);
+  box-shadow: 0 0 18px rgba(230, 202, 156, 0.7);
+}
+
+.footer-message-btn {
+  background: rgba(230, 202, 156, 0.12);
 }
 
 .footer-social-btn {

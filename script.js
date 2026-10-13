@@ -17,6 +17,8 @@
   const musicPlayer = document.getElementById('musicPlayer');
   const bgMusic = document.getElementById('bgMusic');
   const toast = document.getElementById('toast');
+  const coverGuestName = document.querySelector('.cover-guest-name');
+  const scrollProgress = document.getElementById('scrollProgress');
   const musicToast = document.getElementById('musicToast');
   const btnToggleAmplop = document.getElementById('btnToggleAmplop');
   const amplopBox = document.getElementById('amplopBox');
@@ -25,6 +27,9 @@
   const qrisImage = document.querySelector('.qris-image');
   const qrisFallback = document.querySelector('.qris-fallback');
   const sparkleBurst = document.getElementById('sparkleBurst');
+  const voiceNoteToggle = document.getElementById('voiceNoteToggle');
+  const voiceNoteAudio = document.getElementById('voiceNoteAudio');
+  const voiceNoteFallback = document.getElementById('voiceNoteFallback');
   const rsvpForm = document.getElementById('rsvpForm');
   const wishesContainer = document.getElementById('wishesContainer');
   const statHadirEl = document.getElementById('statHadir');
@@ -38,6 +43,10 @@
   const lightboxPrev = document.getElementById('lightboxPrev');
   const lightboxNext = document.getElementById('lightboxNext');
   const galleryThumbs = document.querySelectorAll('.gallery-thumb');
+
+  const params = new URLSearchParams(window.location.search);
+  const guestName = (params.get('to') || params.get('guest') || '').trim();
+  if (coverGuestName) coverGuestName.textContent = guestName || 'Tamu Undangan';
 
   // ——————————————————————————————————————————————
   // 1. Initialize Lottie Flying Birds
@@ -336,6 +345,17 @@
   const copyButtons = document.querySelectorAll('.btn-copy-card');
 
   copyButtons.forEach((btn) => {
+    const setCopiedState = () => {
+      const label = btn.querySelector('span');
+      const originalText = label ? label.textContent : btn.textContent;
+      btn.classList.add('is-copied');
+      if (label) label.textContent = '✓ Tersalin!';
+      setTimeout(() => {
+        btn.classList.remove('is-copied');
+        if (label) label.textContent = originalText;
+      }, 2000);
+    };
+
     btn.addEventListener('click', function () {
       const textToCopy = this.getAttribute('data-copy');
       if (!textToCopy) return;
@@ -343,13 +363,8 @@
       navigator.clipboard
         .writeText(textToCopy)
         .then(() => {
-          const originalText = this.querySelector('span') ? this.querySelector('span').textContent : 'Copy';
-          if (this.querySelector('span')) this.querySelector('span').textContent = 'Tersalin!';
+          setCopiedState();
           showToast('Berhasil disalin ke clipboard! ✓');
-
-          setTimeout(() => {
-            if (this.querySelector('span')) this.querySelector('span').textContent = originalText;
-          }, 2500);
         })
         .catch(() => {
           const tempInput = document.createElement('textarea');
@@ -358,10 +373,55 @@
           tempInput.select();
           document.execCommand('copy');
           document.body.removeChild(tempInput);
+          setCopiedState();
           showToast('Berhasil disalin ke clipboard! ✓');
         });
     });
   });
+
+  function updateScrollProgress() {
+    if (!scrollProgress) return;
+    const usingPhoneScroller = window.innerWidth >= 992 && phoneFrame;
+    const scrollTop = usingPhoneScroller ? phoneFrame.scrollTop : window.scrollY;
+    const scrollHeight = usingPhoneScroller ? phoneFrame.scrollHeight : document.documentElement.scrollHeight;
+    const viewportHeight = usingPhoneScroller ? phoneFrame.clientHeight : window.innerHeight;
+    const maxScroll = scrollHeight - viewportHeight;
+    const progress = maxScroll > 0 ? (scrollTop / maxScroll) * 100 : 0;
+    scrollProgress.style.width = `${Math.min(100, Math.max(0, progress))}%`;
+  }
+
+  window.addEventListener('scroll', updateScrollProgress, { passive: true });
+  if (phoneFrame) phoneFrame.addEventListener('scroll', updateScrollProgress, { passive: true });
+  window.addEventListener('resize', updateScrollProgress);
+  updateScrollProgress();
+
+  if (voiceNoteToggle && voiceNoteAudio) {
+    const icon = voiceNoteToggle.querySelector('.voice-note-icon');
+    const status = voiceNoteToggle.querySelector('.voice-note-status');
+    voiceNoteToggle.addEventListener('click', () => {
+      if (voiceNoteAudio.paused) {
+        voiceNoteAudio.play().catch(() => {
+          if (voiceNoteFallback) voiceNoteFallback.style.display = 'block';
+        });
+      } else {
+        voiceNoteAudio.pause();
+      }
+    });
+    voiceNoteAudio.addEventListener('play', () => {
+      voiceNoteToggle.setAttribute('aria-pressed', 'true');
+      if (icon) icon.textContent = '❚❚';
+      if (status) status.textContent = 'Jeda Sapaan';
+    });
+    voiceNoteAudio.addEventListener('pause', () => {
+      voiceNoteToggle.setAttribute('aria-pressed', 'false');
+      if (icon) icon.textContent = '▶';
+      if (status) status.textContent = 'Dengarkan Sapaan';
+    });
+    voiceNoteAudio.addEventListener('error', () => {
+      if (voiceNoteFallback) voiceNoteFallback.style.display = 'block';
+      voiceNoteToggle.disabled = true;
+    });
+  }
 
   function showToast(message) {
     if (!toast) return;
