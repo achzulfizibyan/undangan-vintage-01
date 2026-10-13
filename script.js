@@ -139,7 +139,7 @@
   });
 
   // ——————————————————————————————————————————————
-  // 4. Cover: Buka Undangan (Smooth Reveal)
+  // 4. Cover: Buka Undangan (Curtain Opening Reveal)
   // ——————————————————————————————————————————————
   let isUnlocked = false;
 
@@ -148,24 +148,32 @@
       if (isUnlocked) return;
       isUnlocked = true;
 
-      // 1. Slide up cover
+      // 1. Tambahkan class .opened pada #cover untuk memicu animasi gorden terbuka
       cover.classList.add('opened');
       document.body.classList.remove('no-scroll');
 
-      // 2. Play background music
+      // 2. Jalankan fungsi pemutar musik latar
       startMusic();
 
-      // 3. Start romantic floating batik and petals
+      // 3. Mulai partikel romantis floating batik dan kelopak bunga
       startFloatingDecorations();
 
-      // 4. Trigger animations on the first slide immediately
+      // 4. Jeda waktu 750ms sebelum memicu animasi kemunculan elemen utama (#hero .ef)
+      // agar elemen di balik gorden muncul secara presisi saat gorden mulai terbuka lebar
       setTimeout(() => {
         const heroEfs = document.querySelectorAll('#hero .ef');
         heroEfs.forEach((el) => el.classList.add('active'));
-      }, 400);
+      }, 750);
 
-      // 5. Initialize scroll observer for remaining sections
-      setTimeout(initBisdevReveals, 700);
+      // 5. Inisialisasi scroll observer untuk bagian berikutnya
+      setTimeout(initBisdevReveals, 1000);
+
+      // 6. Pastikan aksesibilitas cover dinonaktifkan setelah animasi gorden selesai
+      setTimeout(() => {
+        if (cover) {
+          cover.setAttribute('aria-hidden', 'true');
+        }
+      }, 1500);
     });
   }
 
