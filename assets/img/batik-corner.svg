@@ -1,36 +1,36 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 160 160" width="160" height="160">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 80 80" width="80" height="80">
   <defs>
-    <linearGradient id="goldCorner" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" stop-color="#dfc181"/>
-      <stop offset="60%" stop-color="#c5a059"/>
-      <stop offset="100%" stop-color="#987834"/>
+    <linearGradient id="roseCornerGold" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#fdf3e2"/>
+      <stop offset="50%" stop-color="#e6ca9c"/>
+      <stop offset="100%" stop-color="#d4b278"/>
+    </linearGradient>
+    <linearGradient id="roseBudPink" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#fbe4de"/>
+      <stop offset="60%" stop-color="#d88c9a"/>
+      <stop offset="100%" stop-color="#c47382"/>
     </linearGradient>
   </defs>
 
-  <!-- Ornamen Pojok Batik Sulur Lung-lungan Ukel -->
-  <g fill="none" stroke="url(#goldCorner)" stroke-linecap="round" stroke-linejoin="round">
-    <!-- Bingkai siku luar -->
-    <path d="M 5 155 L 5 5 L 155 5" stroke-width="2"/>
-    <path d="M 12 145 L 12 12 L 145 12" stroke-width="1" stroke-dasharray="3,3"/>
+  <!-- Elegant Curving Floral Vine -->
+  <path d="M 6 74 C 6 36 36 6 74 6" fill="none" stroke="url(#roseCornerGold)" stroke-width="1.8"/>
+  <path d="M 6 60 C 6 30 30 6 60 6" fill="none" stroke="url(#roseCornerGold)" stroke-width="1" stroke-dasharray="3,3" opacity="0.7"/>
 
-    <!-- Sulur utama meliuk dari sudut -->
-    <path d="M 16 16 C 50 18 80 40 90 75 C 95 95 85 110 70 105 C 55 100 60 75 80 65 C 105 50 140 45 150 45" stroke-width="1.8"/>
-    <path d="M 16 16 C 18 50 40 80 75 90 C 95 95 110 85 105 70 C 100 55 75 60 65 80 C 50 105 45 140 45 150" stroke-width="1.8"/>
-
-    <!-- Daun kelopak / ukelan -->
-    <path d="M 35 12 C 45 25 35 38 25 35 C 18 32 22 20 35 12 Z" fill="#dfc181" opacity="0.6"/>
-    <path d="M 12 35 C 25 45 38 35 35 25 C 32 18 20 22 12 35 Z" fill="#dfc181" opacity="0.6"/>
-
-    <!-- Bunga sudut (Rosette Truntum di pojok) -->
-    <circle cx="28" cy="28" r="9" stroke-width="1.5"/>
-    <circle cx="28" cy="28" r="4" fill="url(#goldCorner)"/>
-
-    <!-- Butiran Cecek Emas Sepanjang Lengkungan -->
-    <circle cx="55" cy="48" r="2.2" fill="#dfc181"/>
-    <circle cx="70" cy="58" r="2.5" fill="#dfc181"/>
-    <circle cx="48" cy="55" r="2.2" fill="#dfc181"/>
-    <circle cx="58" cy="70" r="2.5" fill="#dfc181"/>
-    <circle cx="108" cy="38" r="2" fill="#c5a059"/>
-    <circle cx="38" cy="108" r="2" fill="#c5a059"/>
+  <!-- Rosebud at Corner Apex -->
+  <g transform="translate(14, 14)">
+    <circle cx="0" cy="0" r="7" fill="url(#roseBudPink)" opacity="0.95"/>
+    <path d="M -5 -3 Q 0 4 5 -3 Q 0 -7 -5 -3 Z" fill="#fff5f2" opacity="0.6"/>
+    <!-- Small Leaf Wings -->
+    <path d="M -2 4 Q -10 10 -4 14 Q 2 12 -2 4 Z" fill="url(#roseCornerGold)" opacity="0.85"/>
+    <path d="M 4 -2 Q 10 -10 14 -4 Q 12 2 4 -2 Z" fill="url(#roseCornerGold)" opacity="0.85"/>
   </g>
+
+  <!-- Delicate Leaves along Vine -->
+  <path d="M 6 42 Q 14 38 18 46 Q 10 48 6 42 Z" fill="url(#roseCornerGold)" opacity="0.8"/>
+  <path d="M 42 6 Q 38 14 46 18 Q 48 10 42 6 Z" fill="url(#roseCornerGold)" opacity="0.8"/>
+
+  <!-- Small Rose Blossom Accent -->
+  <circle cx="6" cy="74" r="3" fill="url(#roseBudPink)"/>
+  <circle cx="74" cy="6" r="3" fill="url(#roseBudPink)"/>
+  <circle cx="6" cy="6" r="3.5" fill="url(#roseCornerGold)"/>
 </svg>

@@ -542,9 +542,9 @@
   });
 
   // ——————————————————————————————————————————————
-  // 12. Floating Ethereal Batik & Petals
+  // 12. Floating Romantic Floral Petals & Sparkles
   // ——————————————————————————————————————————————
-  const petals = ['🌸', '❀', '✿', '🍃'];
+  const petals = ['🌸', '🥀', '✨', '💮', '🪷', '🍃', '🤍'];
   let animationInterval;
   let isFloatingActive = false;
 
@@ -554,8 +554,8 @@
     petal.textContent = petals[Math.floor(Math.random() * petals.length)];
 
     const left = Math.random() * 100;
-    const duration = 7 + Math.random() * 5;
-    const size = 0.75 + Math.random() * 0.6;
+    const duration = 7 + Math.random() * 6;
+    const size = 0.8 + Math.random() * 0.7;
 
     petal.style.left = left + 'vw';
     petal.style.fontSize = size + 'rem';
@@ -568,19 +568,21 @@
     }, duration * 1000 + 200);
   }
 
-  function createFloatingBatik() {
+  function createFloatingFloral() {
     const el = document.createElement('div');
     el.className = 'batik-float-item';
-    el.innerHTML = '<img src="assets/img/batik-truntum.svg" alt="" class="truntum-svg-float">';
+    // Romantic floral emojis: cherry blossom, wilted rose, sparkle, hibiscus, rosette
+    const florals = ['🌸', '🥀', '✨', '💮', '🏵️', '🌸', '✨'];
+    el.textContent = florals[Math.floor(Math.random() * florals.length)];
 
     const left = Math.random() * 92 + 4; // 4vw to 96vw
     const duration = 10 + Math.random() * 8; // slow, dreamy float (10s - 18s)
-    const size = 18 + Math.random() * 24; // 18px - 42px
+    const size = 16 + Math.random() * 18; // 16px - 34px
     const driftX = (Math.random() - 0.5) * 80; // -40px to +40px
 
     el.style.left = left + 'vw';
-    el.style.width = size + 'px';
-    el.style.height = size + 'px';
+    el.style.fontSize = size + 'px';
+    el.style.lineHeight = '1';
     el.style.animationDuration = duration + 's';
     el.style.setProperty('--drift-x', driftX + 'px');
 
@@ -597,7 +599,7 @@
 
     // Initial batch
     for (let i = 0; i < 4; i++) {
-      setTimeout(createFloatingBatik, i * 450 + 100);
+      setTimeout(createFloatingFloral, i * 450 + 100);
       setTimeout(createPetal, i * 650 + 250);
     }
 
@@ -607,7 +609,7 @@
       if (document.hidden) return;
       counter++;
       if (counter % 2 === 0) {
-        createFloatingBatik();
+        createFloatingFloral();
       } else {
         createPetal();
       }
@@ -616,9 +618,61 @@
 
   // Spawn gentle ambient floating batik on cover immediately
   setTimeout(() => {
-    createFloatingBatik();
-    setTimeout(createFloatingBatik, 1200);
+    createFloatingFloral();
+    setTimeout(createFloatingFloral, 1200);
   }, 500);
+
+  // ——————————————————————————————————————————————
+  // 13. Smooth Parallax Depth for Batik Backgrounds
+  // ——————————————————————————————————————————————
+  function initBatikParallax() {
+    const heroBg = document.querySelector('.hero-slide-bg');
+    const openingSection = document.querySelector('.opening-section');
+    const coupleSection = document.querySelector('.couple-section');
+    const giftSection = document.querySelector('.amplop-section');
+    const gallerySection = document.querySelector('.gallery-section');
+
+    let ticking = false;
+
+    function onScrollParallax() {
+      const isDesktop = window.innerWidth >= 992 && phoneFrame;
+      const scrollY = isDesktop ? phoneFrame.scrollTop : (window.scrollY || window.pageYOffset || 0);
+
+      if (heroBg) {
+        // Hero subtle depth
+        heroBg.style.transform = `scale(1.15) translateY(${scrollY * 0.12}px)`;
+      }
+
+      if (openingSection) {
+        openingSection.style.backgroundPositionY = `calc(50% + ${(scrollY - 400) * 0.08}px)`;
+      }
+
+      if (coupleSection) {
+        coupleSection.style.backgroundPositionY = `calc(50% + ${(scrollY - 800) * 0.06}px)`;
+      }
+
+      if (giftSection) {
+        giftSection.style.backgroundPositionY = `calc(50% + ${(scrollY - 2000) * 0.05}px)`;
+      }
+
+      if (gallerySection) {
+        gallerySection.style.backgroundPositionY = `calc(100% + ${(scrollY - 1600) * 0.05}px)`;
+      }
+
+      ticking = false;
+    }
+
+    scrollContainers.forEach((c) => {
+      c.addEventListener('scroll', () => {
+        if (!ticking) {
+          window.requestAnimationFrame(onScrollParallax);
+          ticking = true;
+        }
+      }, { passive: true });
+    });
+  }
+
+  initBatikParallax();
 
 })();
 

@@ -7,26 +7,36 @@
 /* ---------- Google Fonts ---------- */
 @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400;1,600&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Quicksand:wght@300;400;500;600;700&family=Montserrat:wght@300;400;500;600&family=Cinzel:wght@400;600;700&display=swap');
 
-/* ---------- Design Tokens ---------- */
+/* ---------- Design Tokens (Soft Romantic Floral & Champagne Gold) ---------- */
 :root {
-  --color-primary-teal: #446b77;
-  --color-primary-dark: #2f4e57;
-  --color-primary-deep: #21363c;
+  /* Primary Accents: Dusty Rose / Soft Mauve */
+  --color-primary-teal: #c47382; /* Mapped to Dusty Rose so existing components adopt it */
+  --color-primary-rose: #d88c9a;
+  --color-primary-dark: #b86072;
+  --color-primary-deep: #8f3e50; /* Deep velvet rose / wine */
+  --color-rose-soft: #f7d6d0;
+  --color-blush-pink: #f2b8b5;
+  --color-peach-light: #fbeee8;
   
-  --color-bg-ivory: #fdfbf7;
-  --color-bg-cream: #f6efe4;
-  --color-bg-sand: #ece3d4;
+  /* Backgrounds: Soft Warm Ivory / Powder White */
+  --color-bg-ivory: #fffbf8;
+  --color-bg-cream: #fdf5f2;
+  --color-bg-sand: #faede9;
   --color-bg-card: rgba(255, 255, 255, 0.94);
+  --color-bg-glass: rgba(255, 255, 255, 0.88);
 
-  --color-text-main: #2e2622;
-  --color-text-muted: #6b5e59;
-  --color-text-light: #8e807b;
-  --color-text-teal: #446b77;
+  /* Text Colors: Soft Charcoal & Muted Rose Gray */
+  --color-text-main: #3a2e31;
+  --color-text-muted: #7d6a6e;
+  --color-text-light: #a88e93;
+  --color-text-teal: #c47382;
 
-  --color-gold: #c5a059;
-  --color-gold-light: #dfc181;
-  --color-gold-dark: #987834;
-  --color-gold-border: rgba(197, 160, 89, 0.35);
+  /* Luxury Highlight: Champagne Gold */
+  --color-gold: #d4b278;
+  --color-gold-light: #e6ca9c;
+  --color-gold-dark: #b89354;
+  --color-gold-border: rgba(212, 178, 120, 0.4);
+  --color-gold-champagne: #fbf0db;
 
   --font-serif-luxury: 'Cormorant Garamond', Georgia, serif;
   --font-serif-display: 'Playfair Display', Georgia, serif;
@@ -34,14 +44,15 @@
   --font-sans-accent: 'Montserrat', sans-serif;
   --font-roman: 'Cinzel', serif;
 
-  --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.05);
-  --shadow-md: 0 6px 18px rgba(0, 0, 0, 0.08);
-  --shadow-lg: 0 12px 36px rgba(0, 0, 0, 0.12);
-  --shadow-card: 0 4px 20px rgba(68, 107, 119, 0.08);
+  --shadow-sm: 0 4px 12px rgba(196, 115, 130, 0.08);
+  --shadow-md: 0 8px 25px rgba(196, 115, 130, 0.12);
+  --shadow-lg: 0 16px 40px rgba(196, 115, 130, 0.16);
+  --shadow-card: 0 8px 30px rgba(196, 115, 130, 0.1);
+  --shadow-glow: 0 0 20px rgba(230, 202, 156, 0.35);
 
-  --radius-sm: 8px;
-  --radius-md: 16px;
-  --radius-lg: 24px;
+  --radius-sm: 10px;
+  --radius-md: 20px;
+  --radius-lg: 28px;
   --radius-pill: 9999px;
 
   --transition-smooth: all 0.4s cubic-bezier(0.25, 1, 0.5, 1);
@@ -61,7 +72,7 @@ html {
   scroll-behavior: smooth;
   -webkit-text-size-adjust: 100%;
   font-size: 16px;
-  background-color: #212c30;
+  background-color: #3a2022;
 }
 
 body {
@@ -222,20 +233,20 @@ button {
   overflow: hidden;
   will-change: transform;
   pointer-events: none;
-  background-color: var(--color-primary-deep, #21363c);
+  background-color: var(--color-primary-deep, #8f3e50);
   transition: transform 1.4s cubic-bezier(0.77, 0, 0.175, 1);
 }
 
 .curtain-left {
   left: 0;
   transform: translateX(0);
-  background: #21363c url('assets/img/taman_vintage_vektor.svg') left center/cover no-repeat;
+  background: #8f3e50 linear-gradient(135deg, rgba(216, 140, 154, 0.35) 0%, rgba(143, 62, 80, 0.95) 100%), url('assets/img/taman_vintage_vektor.svg') left center/cover no-repeat;
 }
 
 .curtain-right {
   right: 0;
   transform: translateX(0);
-  background: #21363c url('assets/img/taman_vintage_vektor.svg') right center/cover no-repeat;
+  background: #8f3e50 linear-gradient(225deg, rgba(216, 140, 154, 0.35) 0%, rgba(143, 62, 80, 0.95) 100%), url('assets/img/taman_vintage_vektor.svg') right center/cover no-repeat;
 }
 
 /* Realistic Fabric Shadow Folds (Simulasi Lipatan Kain Vertikal) */
@@ -247,24 +258,24 @@ button {
   background:
     repeating-linear-gradient(
       to right,
-      rgba(0, 0, 0, 0.52) 0px,
-      rgba(255, 255, 255, 0.08) 20px,
-      rgba(0, 0, 0, 0.58) 42px,
-      rgba(0, 0, 0, 0.22) 58px,
-      rgba(255, 255, 255, 0.12) 74px,
-      rgba(0, 0, 0, 0.52) 90px
+      rgba(48, 16, 24, 0.58) 0px,
+      rgba(255, 230, 235, 0.14) 20px,
+      rgba(48, 16, 24, 0.62) 42px,
+      rgba(143, 62, 80, 0.2) 58px,
+      rgba(255, 230, 235, 0.18) 74px,
+      rgba(48, 16, 24, 0.58) 90px
     ),
     linear-gradient(
       to bottom,
-      rgba(0, 0, 0, 0.65) 0%,
-      rgba(0, 0, 0, 0.08) 18%,
-      rgba(0, 0, 0, 0.08) 82%,
-      rgba(0, 0, 0, 0.72) 100%
+      rgba(60, 18, 28, 0.72) 0%,
+      rgba(0, 0, 0, 0.05) 20%,
+      rgba(0, 0, 0, 0.05) 80%,
+      rgba(60, 18, 28, 0.78) 100%
     );
-  box-shadow: inset 0 0 100px rgba(0, 0, 0, 0.75);
+  box-shadow: inset 0 0 100px rgba(70, 20, 32, 0.75);
 }
 
-/* Aksesori Dekoratif: Garis Lis / Renda Emas (Gold Lace: #d4af37, #f3e5ab) */
+/* Aksesori Dekoratif: Garis Lis / Renda Champagne Gold */
 .curtain-panel::after {
   content: '';
   position: absolute;
@@ -273,13 +284,13 @@ button {
   width: 7px;
   background: linear-gradient(
     to bottom,
-    #aa820a 0%,
-    #d4af37 15%,
-    #f3e5ab 30%,
-    #d4af37 50%,
-    #aa820a 65%,
-    #f3e5ab 85%,
-    #d4af37 100%
+    #b89354 0%,
+    #d4b278 15%,
+    #fbf0db 30%,
+    #e6ca9c 50%,
+    #b89354 65%,
+    #fbf0db 85%,
+    #d4b278 100%
   );
   z-index: 6;
   pointer-events: none;
@@ -288,17 +299,17 @@ button {
 .curtain-left::after {
   right: 0;
   box-shadow: 
-    -2px 0 10px rgba(0, 0, 0, 0.6),
-    0 0 12px rgba(212, 175, 55, 0.7),
-    inset -1px 0 1px rgba(255, 255, 255, 0.6);
+    -2px 0 10px rgba(0, 0, 0, 0.5),
+    0 0 14px rgba(230, 202, 156, 0.75),
+    inset -1px 0 1px rgba(255, 255, 255, 0.7);
 }
 
 .curtain-right::after {
   left: 0;
   box-shadow: 
-    2px 0 10px rgba(0, 0, 0, 0.6),
-    0 0 12px rgba(212, 175, 55, 0.7),
-    inset 1px 0 1px rgba(255, 255, 255, 0.6);
+    2px 0 10px rgba(0, 0, 0, 0.5),
+    0 0 14px rgba(230, 202, 156, 0.75),
+    inset 1px 0 1px rgba(255, 255, 255, 0.7);
 }
 
 /* Transisi Membuka Gorden saat #cover .opened */
@@ -330,7 +341,7 @@ button {
   position: absolute;
   inset: 0;
   z-index: 6;
-  background: radial-gradient(circle at center, rgba(30, 41, 44, 0.45) 0%, rgba(18, 25, 27, 0.8) 100%);
+  background: radial-gradient(circle at center, rgba(143, 62, 80, 0.4) 0%, rgba(58, 20, 30, 0.82) 100%);
   backdrop-filter: blur(2px);
   pointer-events: none;
 }
@@ -395,8 +406,8 @@ button {
 .cover-guest-box {
   display: inline-block;
   padding: 0.4rem 1.2rem;
-  background: rgba(255, 255, 255, 0.1);
-  border: 1px dashed rgba(223, 193, 129, 0.5);
+  background: rgba(255, 255, 255, 0.12);
+  border: 1px dashed rgba(230, 202, 156, 0.6);
   border-radius: var(--radius-sm);
   margin-bottom: 1.8rem;
 }
@@ -414,15 +425,15 @@ button {
   align-items: center;
   justify-content: center;
   gap: 0.6rem;
-  background: linear-gradient(135deg, var(--color-primary-teal), var(--color-primary-dark));
+  background: linear-gradient(135deg, var(--color-primary-rose), var(--color-primary-dark));
   color: #ffffff;
   padding: 0.85rem 1.8rem;
   border-radius: var(--radius-pill);
   font-size: 0.95rem;
   font-weight: 600;
   letter-spacing: 0.05em;
-  box-shadow: 0 6px 20px rgba(68, 107, 119, 0.4);
-  border: 1px solid var(--color-gold-light);
+  box-shadow: 0 6px 22px rgba(196, 115, 130, 0.45);
+  border: 1.5px solid var(--color-gold-light);
   transition: var(--transition-smooth);
   animation: pulseOpenBtn 2.2s infinite;
   position: relative;
@@ -431,12 +442,12 @@ button {
 
 .btn-open-invitation:hover {
   transform: translateY(-2px) scale(1.03);
-  box-shadow: 0 10px 28px rgba(68, 107, 119, 0.6);
+  box-shadow: 0 10px 30px rgba(196, 115, 130, 0.65);
 }
 
 @keyframes pulseOpenBtn {
-  0%, 100% { box-shadow: 0 0 0 0 rgba(197, 160, 89, 0.5); }
-  50% { box-shadow: 0 0 0 12px rgba(197, 160, 89, 0); }
+  0%, 100% { box-shadow: 0 0 0 0 rgba(230, 202, 156, 0.55); }
+  50% { box-shadow: 0 0 0 12px rgba(230, 202, 156, 0); }
 }
 
 /* Button Shimmer Wave */
@@ -466,13 +477,13 @@ button {
 }
 
 /* ============================================================
-   DESKTOP SPLIT LAYOUT (BATIK MOTIF: batik-cover.jpg)
+   DESKTOP SPLIT LAYOUT (ROMANTIC FLURAL THEME)
    ============================================================ */
 .desktop-layout-container {
   display: flex;
   width: 100%;
   min-height: 100vh;
-  background: #1b2326;
+  background: #2b171d;
 }
 
 /* Left Hero Banner (Desktop only) */
@@ -498,14 +509,14 @@ button {
     position: absolute;
     inset: 0;
     background: url('assets/img/taman_vintage_vektor.svg') center/cover no-repeat;
-    filter: brightness(0.85) contrast(1.05);
+    filter: brightness(0.9) contrast(1.05);
   }
 
   .desktop-hero-bg::after {
     content: '';
     position: absolute;
     inset: 0;
-    background: linear-gradient(135deg, rgba(28, 44, 49, 0.72) 0%, rgba(14, 22, 25, 0.86) 100%);
+    background: linear-gradient(135deg, rgba(82, 32, 45, 0.78) 0%, rgba(46, 16, 25, 0.9) 100%);
   }
 
   .desktop-hero-content {
@@ -635,15 +646,54 @@ button {
 
 .event-divider,
 .divider-wrap {
-  width: 180px;
-  margin: 0.5rem auto 1.5rem;
-  opacity: 0.85;
+  width: 200px;
+  max-width: 85%;
+  margin: 0.75rem auto 1.6rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+.event-divider::before,
+.divider-wrap::before {
+  content: '';
+  flex: 1;
+  height: 1.5px;
+  background: linear-gradient(
+    to right,
+    transparent 0%,
+    rgba(197, 160, 89, 0.25) 25%,
+    rgba(223, 193, 129, 0.85) 75%,
+    #c5a059 100%
+  );
+}
+
+.event-divider::after,
+.divider-wrap::after {
+  content: '';
+  flex: 1;
+  height: 1.5px;
+  background: linear-gradient(
+    to left,
+    transparent 0%,
+    rgba(197, 160, 89, 0.25) 25%,
+    rgba(223, 193, 129, 0.85) 75%,
+    #c5a059 100%
+  );
 }
 
 .divider-img {
-  width: 100%;
+  width: auto;
+  max-width: 135px;
   height: auto;
-  filter: sepia(0.2);
+  margin: 0 0.5rem;
+  filter: drop-shadow(0 2px 4px rgba(197, 160, 89, 0.45)) contrast(1.15) brightness(1.05);
+  transition: transform 0.4s ease;
+}
+
+.event-divider:hover .divider-img {
+  transform: scale(1.06);
 }
 
 /* ============================================================
@@ -683,7 +733,7 @@ button {
   content: '';
   position: absolute;
   inset: 0;
-  background: radial-gradient(circle at center, rgba(20, 32, 36, 0.45) 0%, rgba(14, 22, 25, 0.76) 100%);
+  background: radial-gradient(circle at center, rgba(166, 91, 109, 0.38) 0%, rgba(68, 24, 34, 0.8) 100%);
 }
 
 .hero-content {
@@ -716,38 +766,41 @@ button {
   font-family: var(--font-sans-accent);
   font-size: 1.1rem;
   letter-spacing: 0.2em;
-  color: var(--color-gold);
+  color: var(--color-gold-light);
   margin-bottom: 2.2rem;
 }
 
 .btn-save-the-date {
   display: inline-block;
-  padding: 0.7rem 1.8rem;
-  background: transparent;
+  padding: 0.75rem 2rem;
+  background: linear-gradient(135deg, rgba(216, 140, 154, 0.28), rgba(196, 115, 130, 0.42));
   color: #ffffff;
-  border: 1px solid var(--color-gold);
+  border: 1.5px solid var(--color-gold-light);
   border-radius: var(--radius-pill);
   font-size: 0.85rem;
   letter-spacing: 0.15em;
   text-transform: uppercase;
+  backdrop-filter: blur(8px);
+  box-shadow: 0 4px 18px rgba(196, 115, 130, 0.25);
   transition: var(--transition-smooth);
   position: relative;
   overflow: hidden;
 }
 
 .btn-save-the-date:hover {
-  background: var(--color-gold);
-  color: var(--color-primary-deep);
+  background: linear-gradient(135deg, var(--color-primary-rose), var(--color-primary-dark));
+  color: #ffffff;
   transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(196, 115, 130, 0.45);
 }
 
 /* ============================================================
-   SECTION: OPENING (BATIK MOTIF: ART-WHITE-02 / batik-bg-2.webp)
+   SECTION: OPENING (SOFT ROMANTIC IVORY & POWDER WHITE)
    ============================================================ */
 .opening-section {
   padding: 4.5rem 1.8rem;
   background-color: var(--color-bg-cream);
-  background-image: linear-gradient(rgba(246, 239, 228, 0.88), rgba(246, 239, 228, 0.92)), url('assets/img/batik-bg-2.webp');
+  background-image: linear-gradient(rgba(253, 245, 242, 0.92), rgba(253, 245, 242, 0.96)), url('assets/img/batik-bg-2.webp');
   background-position: center center;
   background-size: cover;
 }
@@ -756,13 +809,13 @@ button {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  width: 70px;
-  height: 70px;
+  width: 72px;
+  height: 72px;
   border-radius: 50%;
   border: 1.5px solid var(--color-gold);
   margin-bottom: 1.8rem;
   background: var(--color-bg-ivory);
-  box-shadow: 0 4px 15px rgba(197, 160, 89, 0.15);
+  box-shadow: 0 6px 20px rgba(196, 115, 130, 0.2);
   animation: gentleFloat 4s ease-in-out infinite;
 }
 
@@ -775,7 +828,7 @@ button {
   font-family: var(--font-serif-luxury);
   font-size: 1.8rem;
   font-weight: 600;
-  color: var(--color-primary-teal);
+  color: var(--color-primary-rose);
   letter-spacing: 0.05em;
 }
 
@@ -796,7 +849,7 @@ button {
   font-size: 0.88rem;
   font-weight: 600;
   font-style: normal;
-  color: var(--color-primary-teal);
+  color: var(--color-primary-rose);
   letter-spacing: 0.05em;
 }
 
@@ -872,7 +925,7 @@ button {
   gap: 0.4rem;
   padding: 0.35rem 0.9rem;
   border-radius: var(--radius-pill);
-  background: var(--color-primary-teal);
+  background: linear-gradient(135deg, var(--color-primary-rose), var(--color-primary-dark));
   color: #fff;
   font-size: 0.8rem;
   font-weight: 500;
@@ -975,14 +1028,13 @@ button {
 }
 
 .event-card {
-  background-color: var(--color-bg-card);
-  background-image: linear-gradient(rgba(255, 255, 255, 0.92), rgba(255, 255, 255, 0.96)), url('assets/img/batik-bg-1.webp');
-  background-position: center center;
-  background-size: cover;
-  border: 1px solid var(--color-gold-border);
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(230, 202, 156, 0.35);
   border-radius: var(--radius-lg);
   padding: 2.5rem 1.5rem;
-  box-shadow: var(--shadow-card);
+  box-shadow: 0 8px 32px rgba(196, 115, 130, 0.1), 0 2px 8px rgba(0, 0, 0, 0.04);
   position: relative;
   transition: transform 0.4s ease, box-shadow 0.4s ease;
 }
@@ -1015,7 +1067,7 @@ button {
 }
 
 .event-location-box {
-  background: rgba(68, 107, 119, 0.05);
+  background: rgba(216, 140, 154, 0.08);
   border-radius: var(--radius-md);
   padding: 1rem;
   margin-bottom: 1.5rem;
@@ -1041,7 +1093,7 @@ button {
   align-items: center;
   justify-content: center;
   gap: 0.5rem;
-  background: var(--color-primary-teal);
+  background: linear-gradient(135deg, var(--color-primary-rose), var(--color-primary-dark));
   color: #fff;
   padding: 0.7rem 1.6rem;
   border-radius: var(--radius-pill);
@@ -1049,7 +1101,7 @@ button {
   font-weight: 600;
   letter-spacing: 0.05em;
   transition: var(--transition-smooth);
-  box-shadow: 0 4px 12px rgba(68, 107, 119, 0.25);
+  box-shadow: 0 4px 12px rgba(196, 115, 130, 0.3);
   position: relative;
   overflow: hidden;
 }
@@ -1058,7 +1110,7 @@ button {
 .btn-streaming:hover {
   background: var(--color-primary-dark);
   transform: translateY(-2px);
-  box-shadow: 0 8px 18px rgba(68, 107, 119, 0.35);
+  box-shadow: 0 8px 18px rgba(196, 115, 130, 0.4);
 }
 
 /* ============================================================
@@ -1108,6 +1160,8 @@ button {
   background: #fff;
   border: 1px solid var(--color-gold-border);
   box-shadow: var(--shadow-md);
+  position: relative;
+  overflow: hidden;
 }
 
 .story-image {
@@ -1237,7 +1291,7 @@ button {
 .thumb-overlay {
   position: absolute;
   inset: 0;
-  background: rgba(47, 78, 87, 0.45);
+  background: rgba(143, 62, 80, 0.4);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -1277,14 +1331,14 @@ button {
   display: inline-flex;
   align-items: center;
   gap: 0.5rem;
-  background: var(--color-primary-teal);
+  background: linear-gradient(135deg, var(--color-primary-rose), var(--color-primary-dark));
   color: #fff;
   padding: 0.75rem 1.8rem;
   border-radius: var(--radius-pill);
   font-size: 0.9rem;
   font-weight: 600;
   transition: var(--transition-smooth);
-  box-shadow: 0 4px 15px rgba(68, 107, 119, 0.25);
+  box-shadow: 0 4px 15px rgba(196, 115, 130, 0.3);
   position: relative;
   overflow: hidden;
 }
@@ -1349,9 +1403,9 @@ button {
   border: 1px solid rgba(255, 255, 255, 0.15);
 }
 
-.atm-mandiri {
-  background-image: linear-gradient(135deg, rgba(14, 59, 94, 0.92), rgba(6, 31, 51, 0.96)), url('assets/img/bg-bank.webp');
-  border: 1px solid rgba(255, 255, 255, 0.15);
+.atm-jatim {
+  background-image: linear-gradient(135deg, rgba(168, 22, 42, 0.94), rgba(105, 10, 24, 0.98)), url('assets/img/bg-bank.webp');
+  border: 1px solid rgba(255, 255, 255, 0.18);
 }
 
 .atm-card-header {
@@ -1378,6 +1432,21 @@ button {
   letter-spacing: 0.15em;
   font-size: 1.1rem;
   color: #ffb800;
+}
+
+.bank-jatim-logo {
+  font-family: var(--font-sans-accent);
+  font-size: 1.25rem;
+  letter-spacing: -0.01em;
+  color: #ffffff;
+  font-weight: 400;
+  text-transform: lowercase;
+}
+
+.bank-jatim-logo strong {
+  font-weight: 900;
+  color: #ffdf00;
+  letter-spacing: 0.02em;
 }
 
 .atm-card-body {
@@ -1436,6 +1505,8 @@ button {
   padding: 1.5rem;
   text-align: left;
   box-shadow: var(--shadow-sm);
+  position: relative;
+  overflow: hidden;
 }
 
 .gift-icon-badge {
@@ -1445,8 +1516,8 @@ button {
   width: 40px;
   height: 40px;
   border-radius: 50%;
-  background: rgba(68, 107, 119, 0.1);
-  color: var(--color-primary-teal);
+  background: rgba(216, 140, 154, 0.12);
+  color: var(--color-primary-rose);
   margin-bottom: 0.75rem;
 }
 
@@ -1478,7 +1549,7 @@ button {
 }
 
 .gift-send-card .btn-copy-card {
-  background: var(--color-primary-teal);
+  background: linear-gradient(135deg, var(--color-primary-rose), var(--color-primary-dark));
   color: #fff;
   border: none;
   margin-top: 0.75rem;
@@ -1546,11 +1617,13 @@ button {
 }
 
 .rsvp-form-card {
-  background: #ffffff;
-  border: 1px solid var(--color-gold-border);
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(230, 202, 156, 0.35);
   border-radius: var(--radius-lg);
   padding: 2rem 1.5rem;
-  box-shadow: var(--shadow-card);
+  box-shadow: 0 8px 32px rgba(196, 115, 130, 0.1), 0 2px 8px rgba(0, 0, 0, 0.04);
   max-width: 400px;
   margin: 0 auto 2.5rem;
   text-align: left;
@@ -1576,8 +1649,8 @@ button {
 .form-input:focus,
 .form-textarea:focus {
   outline: none;
-  border-color: var(--color-primary-teal);
-  box-shadow: 0 0 0 3px rgba(68, 107, 119, 0.15);
+  border-color: var(--color-primary-rose);
+  box-shadow: 0 0 0 3px rgba(216, 140, 154, 0.2);
 }
 
 .form-field-label {
@@ -1607,23 +1680,23 @@ button {
 }
 
 .presence-pill.pill-active {
-  background: var(--color-primary-teal);
+  background: linear-gradient(135deg, var(--color-primary-rose), var(--color-primary-dark));
   color: #ffffff;
-  border-color: var(--color-primary-teal);
-  box-shadow: 0 3px 10px rgba(68, 107, 119, 0.25);
+  border-color: var(--color-primary-rose);
+  box-shadow: 0 3px 10px rgba(196, 115, 130, 0.3);
 }
 
 .btn-rsvp-submit {
   width: 100%;
   padding: 0.85rem;
-  background: var(--color-primary-teal);
+  background: linear-gradient(135deg, var(--color-primary-rose), var(--color-primary-dark));
   color: #fff;
   border-radius: var(--radius-pill);
   font-size: 0.95rem;
   font-weight: 600;
   letter-spacing: 0.05em;
   transition: var(--transition-smooth);
-  box-shadow: 0 4px 15px rgba(68, 107, 119, 0.25);
+  box-shadow: 0 4px 15px rgba(196, 115, 130, 0.3);
 }
 
 .btn-rsvp-submit:hover {
@@ -1839,7 +1912,7 @@ button {
   width: 18px;
   height: 18px;
   border-radius: 50%;
-  background: var(--color-primary-teal);
+  background: var(--color-primary-rose);
   border: 1px solid var(--color-gold-light);
   display: flex;
   align-items: center;
@@ -1897,11 +1970,11 @@ button {
   align-items: center;
   gap: 0.5rem;
   padding: 0.5rem 0.8rem;
-  background: rgba(33, 48, 52, 0.88);
+  background: rgba(58, 30, 36, 0.88);
   backdrop-filter: blur(12px);
-  border: 1px solid rgba(223, 193, 129, 0.35);
+  border: 1px solid rgba(230, 202, 156, 0.35);
   border-radius: var(--radius-pill);
-  box-shadow: 0 8px 28px rgba(0, 0, 0, 0.28);
+  box-shadow: 0 8px 28px rgba(58, 30, 36, 0.35);
 }
 
 @media (min-width: 992px) {
@@ -2253,7 +2326,7 @@ button {
   width: 100%;
   height: 100%;
   display: block;
-  filter: drop-shadow(0 0 8px rgba(223, 193, 129, 0.75)) drop-shadow(0 0 15px rgba(197, 160, 89, 0.4));
+  filter: drop-shadow(0 0 8px rgba(216, 140, 154, 0.65)) drop-shadow(0 0 15px rgba(230, 202, 156, 0.35));
 }
 
 @keyframes floatTruntum {
@@ -2276,5 +2349,224 @@ button {
     opacity: 0;
   }
 }
+
+/* ============================================================
+   1. TEKSTUR KERTAS KUNO (Paper Grain Overlay)
+   ============================================================ */
+.paper-texture {
+  position: fixed;
+  inset: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 9999; /* Di bawah #cover (99999), di atas semua section halaman */
+  pointer-events: none;
+  mix-blend-mode: multiply;
+  opacity: 0.32;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 250 250' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='paperNoise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix type='matrix' values='0 0 0 0 0.88  0 0 0 0 0.83  0 0 0 0 0.75  0 0 0 0.65 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23paperNoise)'/%3E%3C/svg%3E");
+  background-repeat: repeat;
+}
+
+/* ============================================================
+   2. EFEK TINTA EMAS BERKILAU (Gold Foil Shimmer)
+   ============================================================ */
+.gold-foil-text {
+  background: linear-gradient(
+    120deg,
+    #987834 0%,
+    #c5a059 18%,
+    #f3e5ab 38%,
+    #ffffff 50%,
+    #f3e5ab 62%,
+    #c5a059 82%,
+    #987834 100%
+  );
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  color: transparent;
+  display: inline-block;
+  animation: shimmerGold 4.5s linear infinite;
+  text-shadow: 0 0 12px rgba(243, 229, 171, 0.25);
+  font-weight: inherit;
+}
+
+@keyframes shimmerGold {
+  0% {
+    background-position: 0% center;
+  }
+  100% {
+    background-position: 200% center;
+  }
+}
+
+/* ============================================================
+   3. SEGEL LILIN VINTAGE (Wax Seal Badge)
+   ============================================================ */
+.wax-seal-wrapper {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 1.25rem auto -1.6rem; /* Overlapping di atas tombol / kartu */
+  z-index: 5;
+}
+
+.wax-seal-stamp {
+  width: 68px;
+  height: 68px;
+  border-radius: 50%;
+  background: radial-gradient(circle at 35% 30%, #b86072 0%, #8f3e50 55%, #5e1a2e 100%);
+  box-shadow: 
+    0 10px 24px rgba(0, 0, 0, 0.45),
+    0 2px 6px rgba(0, 0, 0, 0.35),
+    inset 0 3px 6px rgba(255, 255, 255, 0.3),
+    inset 0 -3px 8px rgba(0, 0, 0, 0.7);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  cursor: default;
+  user-select: none;
+  transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.wax-seal-stamp:hover {
+  transform: scale(1.08) rotate(4deg);
+}
+
+/* Tekstur tepi lelehan lilin alami */
+.wax-seal-stamp::before {
+  content: '';
+  position: absolute;
+  inset: -4px;
+  border-radius: 46% 54% 52% 48% / 51% 47% 53% 49%;
+  background: radial-gradient(circle at 40% 30%, #c47382 0%, #7a2f42 100%);
+  z-index: -1;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+}
+
+.wax-seal-outer-rim {
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  border: 1.5px dashed rgba(223, 193, 129, 0.75);
+  box-shadow: 
+    inset 0 0 0 1.5px rgba(143, 62, 80, 0.8),
+    0 0 6px rgba(223, 193, 129, 0.35);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.wax-seal-center {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.wax-monogram {
+  font-family: var(--font-serif-luxury);
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: #f3e5ab;
+  line-height: 1;
+  letter-spacing: 0.08em;
+  text-shadow: 
+    0 1px 2px rgba(0, 0, 0, 0.9),
+    0 -1px 1px rgba(255, 255, 255, 0.4);
+}
+
+.wax-date {
+  font-family: var(--font-sans-accent);
+  font-size: 0.55rem;
+  font-weight: 600;
+  letter-spacing: 0.15em;
+  color: #dfc181;
+  margin-top: 2px;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.8);
+}
+
+/* ============================================================
+   4. EFEK KEDALAMAN PARALLAX BACKGROUND BATIK
+   ============================================================ */
+.hero-slide-bg,
+.opening-section,
+.couple-section,
+.amplop-section,
+.gallery-section {
+  will-change: background-position, transform;
+  transition: background-position 0.05s linear;
+}
+
+/* ============================================================
+   5. AKSEN SUDUT RUSTIC FLORAL & BATIK (.rustic-corner)
+   ============================================================ */
+.rustic-corner {
+  position: absolute;
+  width: 42px;
+  height: 42px;
+  pointer-events: none;
+  z-index: 3;
+  opacity: 0.82;
+  transition: transform 0.4s ease, opacity 0.4s ease;
+}
+
+.rustic-corner svg {
+  width: 100%;
+  height: 100%;
+  filter: drop-shadow(0 1px 3px rgba(197, 160, 89, 0.4));
+}
+
+.rustic-corner.corner-tl {
+  top: 8px;
+  left: 8px;
+}
+
+.rustic-corner.corner-tr {
+  top: 8px;
+  right: 8px;
+  transform: rotate(90deg);
+}
+
+.rustic-corner.corner-br {
+  bottom: 8px;
+  right: 8px;
+  transform: rotate(180deg);
+}
+
+.rustic-corner.corner-bl {
+  bottom: 8px;
+  left: 8px;
+  transform: rotate(270deg);
+}
+
+.event-card:hover .rustic-corner,
+.gift-send-card:hover .rustic-corner {
+  opacity: 1;
+}
+
+.event-card:hover .rustic-corner.corner-tl,
+.gift-send-card:hover .rustic-corner.corner-tl {
+  transform: scale(1.1);
+}
+
+.event-card:hover .rustic-corner.corner-tr,
+.gift-send-card:hover .rustic-corner.corner-tr {
+  transform: rotate(90deg) scale(1.1);
+}
+
+.event-card:hover .rustic-corner.corner-br,
+.gift-send-card:hover .rustic-corner.corner-br {
+  transform: rotate(180deg) scale(1.1);
+}
+
+.event-card:hover .rustic-corner.corner-bl,
+.gift-send-card:hover .rustic-corner.corner-bl {
+  transform: rotate(270deg) scale(1.1);
+}
+
 
 

@@ -1,12 +1,13 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120" width="120" height="120">
   <defs>
-    <linearGradient id="goldTruntum" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" stop-color="#fdf4db"/>
-      <stop offset="40%" stop-color="#dfc181"/>
-      <stop offset="100%" stop-color="#c5a059"/>
+    <linearGradient id="roseGoldFloral" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#fff5f2"/>
+      <stop offset="35%" stop-color="#f7d6d0"/>
+      <stop offset="70%" stop-color="#d88c9a"/>
+      <stop offset="100%" stop-color="#e6ca9c"/>
     </linearGradient>
-    <filter id="glow">
-      <feGaussianBlur stdDeviation="1.5" result="coloredBlur"/>
+    <filter id="petalGlow">
+      <feGaussianBlur stdDeviation="1.8" result="coloredBlur"/>
       <feMerge>
         <feMergeNode in="coloredBlur"/>
         <feMergeNode in="SourceGraphic"/>
@@ -14,22 +15,25 @@
     </filter>
   </defs>
 
-  <!-- Pola Bintang Truntum (Bunga Tabur) -->
-  <g filter="url(#glow)">
-    <!-- 8 Kelopak Utama Lancip (Khas Truntum Keraton) -->
-    <path d="M 60 10 L 64 45 L 85 25 L 75 52 L 110 60 L 75 68 L 85 95 L 64 75 L 60 110 L 56 75 L 35 95 L 45 68 L 10 60 L 45 52 L 35 25 L 56 45 Z" 
-          fill="url(#goldTruntum)" opacity="0.85"/>
+  <!-- 5-Petal Blooming Cherry / Rose Blossom -->
+  <g filter="url(#petalGlow)">
+    <!-- 5 Heart-shaped Rose Petals -->
+    <path d="M 60 60 C 50 40 40 18 60 12 C 80 18 70 40 60 60 Z" fill="url(#roseGoldFloral)" opacity="0.9"/>
+    <path d="M 60 60 C 78 48 102 38 105 58 C 98 76 76 68 60 60 Z" fill="url(#roseGoldFloral)" opacity="0.85"/>
+    <path d="M 60 60 C 74 76 90 98 72 105 C 58 98 62 76 60 60 Z" fill="url(#roseGoldFloral)" opacity="0.9"/>
+    <path d="M 60 60 C 46 76 30 98 15 88 C 18 68 42 66 60 60 Z" fill="url(#roseGoldFloral)" opacity="0.85"/>
+    <path d="M 60 60 C 42 48 18 38 15 58 C 22 76 44 68 60 60 Z" fill="url(#roseGoldFloral)" opacity="0.85"/>
 
-    <!-- Lingkaran Inti Bertitik Cecek -->
-    <circle cx="60" cy="60" r="18" fill="#21363c" stroke="url(#goldTruntum)" stroke-width="1.5"/>
-    <circle cx="60" cy="60" r="12" fill="none" stroke="url(#goldTruntum)" stroke-width="1" stroke-dasharray="2,2"/>
-    <circle cx="60" cy="60" r="5" fill="url(#goldTruntum)"/>
-    <circle cx="60" cy="60" r="2" fill="#ffffff"/>
+    <!-- Champagne Gold Stamens / Center Florets -->
+    <circle cx="60" cy="60" r="10" fill="#fff5ea" stroke="#d4b278" stroke-width="1.2"/>
+    <circle cx="60" cy="60" r="4.5" fill="#e6ca9c"/>
+    <circle cx="60" cy="60" r="1.8" fill="#c47382"/>
 
-    <!-- 4 Titik Cahaya Emas di Sudut Diagonal -->
-    <circle cx="60" cy="32" r="2" fill="#ffffff"/>
-    <circle cx="60" cy="88" r="2" fill="#ffffff"/>
-    <circle cx="32" cy="60" r="2" fill="#ffffff"/>
-    <circle cx="88" cy="60" r="2" fill="#ffffff"/>
+    <!-- Subtle Golden Sparkles -->
+    <circle cx="60" cy="38" r="1.8" fill="#ffd885"/>
+    <circle cx="78" cy="52" r="1.8" fill="#ffd885"/>
+    <circle cx="72" cy="74" r="1.8" fill="#ffd885"/>
+    <circle cx="48" cy="74" r="1.8" fill="#ffd885"/>
+    <circle cx="42" cy="52" r="1.8" fill="#ffd885"/>
   </g>
 </svg>
