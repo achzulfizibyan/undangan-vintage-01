@@ -2106,6 +2106,17 @@ button {
   transition: var(--transition-smooth);
 }
 
+.footer-social-btn svg {
+  display: block;
+  width: 18px;
+  height: 18px;
+  flex: 0 0 18px;
+}
+
+.footer-social-btn:first-child svg {
+  transform: scale(1.12);
+}
+
 .footer-social-btn:hover {
   background: var(--color-gold);
   color: var(--color-primary-deep);
