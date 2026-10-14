@@ -398,9 +398,20 @@
   if (voiceNoteToggle && voiceNoteAudio) {
     const icon = voiceNoteToggle.querySelector('.voice-note-icon');
     const status = voiceNoteToggle.querySelector('.voice-note-status');
+    let resumeMusicAfterVoiceNote = false;
+    let voiceNoteEnded = false;
+
     voiceNoteToggle.addEventListener('click', () => {
       if (voiceNoteAudio.paused) {
+        resumeMusicAfterVoiceNote = Boolean(bgMusic && isPlaying && !bgMusic.paused);
+        voiceNoteEnded = false;
+        if (resumeMusicAfterVoiceNote) {
+          bgMusic.pause();
+          isPlaying = false;
+          if (musicPlayer) musicPlayer.classList.add('paused');
+        }
         voiceNoteAudio.play().catch(() => {
+          resumeMusicAfterVoiceNote = false;
           if (voiceNoteFallback) voiceNoteFallback.style.display = 'block';
         });
       } else {
@@ -416,8 +427,31 @@
       voiceNoteToggle.setAttribute('aria-pressed', 'false');
       if (icon) icon.textContent = '▶';
       if (status) status.textContent = 'Dengarkan Sapaan';
+      if (resumeMusicAfterVoiceNote && !voiceNoteEnded && bgMusic) {
+        resumeMusicAfterVoiceNote = false;
+        bgMusic.play().then(() => {
+          isPlaying = true;
+          if (musicPlayer) musicPlayer.classList.remove('paused');
+        }).catch(() => {
+          isPlaying = false;
+          if (musicPlayer) musicPlayer.classList.add('paused');
+        });
+      }
+    });
+    voiceNoteAudio.addEventListener('ended', () => {
+      if (!resumeMusicAfterVoiceNote || !bgMusic) return;
+      voiceNoteEnded = true;
+      resumeMusicAfterVoiceNote = false;
+      bgMusic.play().then(() => {
+        isPlaying = true;
+        if (musicPlayer) musicPlayer.classList.remove('paused');
+      }).catch(() => {
+        isPlaying = false;
+        if (musicPlayer) musicPlayer.classList.add('paused');
+      });
     });
     voiceNoteAudio.addEventListener('error', () => {
+      resumeMusicAfterVoiceNote = false;
       if (voiceNoteFallback) voiceNoteFallback.style.display = 'block';
       voiceNoteToggle.disabled = true;
     });
