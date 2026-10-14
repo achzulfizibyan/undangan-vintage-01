@@ -1356,6 +1356,16 @@ button {
   transition: transform 0.6s cubic-bezier(0.25, 1, 0.5, 1);
 }
 
+.gallery-thumb img.gallery-img-contain {
+  object-fit: contain;
+  object-position: center;
+  background: #faf5ef;
+}
+
+.gallery-thumb:hover img.gallery-img-contain {
+  transform: none;
+}
+
 .thumb-overlay {
   position: absolute;
   inset: 0.45rem 0.45rem 1.35rem;
